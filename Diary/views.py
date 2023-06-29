@@ -11,3 +11,4 @@ class Sub(APIView):
         print("포스트로 호출")
         return render(request, 'Diary/main.html')
 
+
