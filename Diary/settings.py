@@ -78,8 +78,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'diary',
-        'USER' : 'root',
-        'PASSWORD' : 'Qksksk10!Qksksk10!'
+        'USER': 'root',
+        'PASSWORD': 'Qksksk10!Qksksk10!'
     }
 }
 
