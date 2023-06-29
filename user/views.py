@@ -5,7 +5,6 @@ from django.contrib.auth.hashers import make_password, check_password
 from rest_framework.response import Response
 from uuid import uuid4
 import os
-#from Diary.settings import MEDIA_ROOT
 
 
 # Create your views here.
