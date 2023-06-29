@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>로그인 페이지</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nanum+Square+Round&display=swap');
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #FFE8C5;
+      font-family: 'Nanum Square Round', sans-serif;
+    }
+
+    .container {
+      height: 350px;
+      background-color: #ffffff;
+      border-radius: 20px;
+      padding: 40px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .logo {
+      margin-bottom: 20px;
+    }
+
+    .input-container {
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .input-label {
+      margin-bottom: 5px;
+      color: #C6C4C4;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 5px;
+      border: none;
+      border-bottom: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    .login-btn {
+      width: 100%;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #663D00;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .signup-text {
+      margin-top: 10px;
+      color: #C6C4C4;
+      text-align: center; /* 가운데 정렬 추가 */
+    }
+
+    .signup-btn {
+      color: #663D00;
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://file.notion.so/f/s/96df8386-e777-4ef8-9a74-1f76ea7c2f15/Untitled.png?id=76411646-efd3-4046-bf5a-c73bf00bdc84&table=block&spaceId=2e1647f9-ce64-4b47-b1d8-1c072cd56707&expirationTimestamp=1688104800000&signature=Zg4rV9tym_Qg1pGxuz81S1bqyd-kSHmSZc6N-dvMNY0&downloadName=Untitled.png" alt="로고" class="logo">
+    <div class="input-container">
+      <label for="username" class="input-label">아이디</label>
+      <input type="text" id="username" placeholder="" class="input-field">
+    </div>
+    <div class="input-container">
+      <label for="password" class="input-label">비밀번호</label>
+      <input type="password" id="password" placeholder="" class="input-field">
+    </div>
+    <button type="submit" class="login-btn">로그인</button>
+    <div class="signup-text" style="text-align: center;"> <!-- 가운데 정렬 수정 -->
+      계정이 없으신가요? <button class="signup-btn">가입하기</button>
+    </div>
+  </div>
+</body>
+</html>
