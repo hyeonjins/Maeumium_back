@@ -94,14 +94,12 @@
     <input type="text" id="input_name" class="input-field">
     <label for="gender" class="input-label" style="color: #C6C4C4;">성별</label>
 
-
     <div class="checkbox-container">
         <input type="radio" id="male" name="gender" value="male">
         <label for="male" class="radio-label">남</label>
         <input type="radio" id="female" name="gender" value="female">
         <label for="female" class="radio-label">여</label>
     </div>
-
 
     <label for="phone" class="input-label" style="color: #C6C4C4;">휴대폰 번호</label>
     <input type="text" id="input_phone" class="input-field">
@@ -111,7 +109,6 @@
     <input type="password" id="input_password" class="input-field">
     <label for="confirm_password" class="input-label" style="color: #C6C4C4;">비밀번호 확인</label>
     <input type="password" id="input_confirm_password" class="input-field">
-
 
     <div class="checkbox-container">
         <input type="checkbox" id="agree" name="agree" value="agree">
@@ -130,8 +127,16 @@
         let confirm_password = $('#input_confirm_password').val();
         let name = $('#input_name').val();
         let phone = $('#input_phone').val();
+        let agree = $("#agree").is(":checked");
+        let gender = $('input[name="gender"]:checked').val();
 
-        console.log(username, password, confirm_password, name, phone);
+        if (password !== confirm_password) {
+            alert("비밀번호가 일치하지 않습니다.");
+            return;
+        }
+
+        console.log(agree);
+
         $.ajax({
             url: "/user/join",
             data: {
@@ -139,23 +144,28 @@
                 password: password,
                 confirm_password: confirm_password,
                 name: name,
-                phone: phone
+                phone: phone,
+                agree: agree,
+                gender: gender
             },
             method: "POST",
             success: function (data) {
                 console.log("성공");
                 alert("회원가입 성공했습니다. 로그인해주세요.");
-                location.replace("/user/login")
+                location.replace("/user/login");
             },
-            error: function (request, status, error) {
-                console.log("에러")
+            error: function (xhr, status, error) {
+                // 오류 응답 처리
+                console.log("에러");
+                var errorMessage = xhr.responseJSON.message;
+                alert(errorMessage);
             },
             complete: function () {
                 console.log("완료");
             }
         });
-
     });
+
 </script>
 
 

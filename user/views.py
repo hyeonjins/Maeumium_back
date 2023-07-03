@@ -1,10 +1,9 @@
-from django.shortcuts import render
-from rest_framework.views import APIView
-from .models import User
 from django.contrib.auth.hashers import make_password, check_password
+from django.shortcuts import render
 from rest_framework.response import Response
-from uuid import uuid4
-import os
+from rest_framework.views import APIView
+
+from .models import User
 
 
 # Create your views here.
@@ -18,19 +17,26 @@ class Join(APIView):
         username = request.data.get('username')
         name = request.data.get('name')
         password = request.data.get('password')
+        agree = request.data.get('agree') == 'true'
+        gender = request.data.get('gender')
 
+        if not agree:
+            return Response(status=500, data=dict(message='서비스 이용약관 동의를 하지 않았습니다.'))
         if User.objects.filter(phone=phone).exists():
             return Response(status=500, data=dict(message='해당 핸드폰 번호가 존재합니다.'))
-        elif User.objects.filter(username=username).exists():
-            return Response(status=500, data=dict(message='사용자 이름 "' + username + '"이(가) 존재합니다.'))
+        if User.objects.filter(username=username).exists():
+            return Response(status=500, data=dict(message='아이디 "' + username + '"이(가) 존재합니다.'))
 
         User.objects.create(phone=phone,
                             username=username,
                             name=name,
                             password=make_password(password),
+                            agree=agree,
+                            gender=gender,
                             )
 
         return Response(status=200, data=dict(message="회원가입 성공했습니다. 로그인 해주세요."))
+
 
 
 class Login(APIView):
@@ -58,5 +64,6 @@ class Login(APIView):
 
         request.session['loginCheck'] = True
         request.session['username'] = user.username
+
 
         return Response(status=200, data=dict(message='로그인에 성공했습니다.'))

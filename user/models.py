@@ -16,7 +16,7 @@ class User(AbstractBaseUser):
     name = models.CharField(max_length=24)
     phone = models.EmailField(unique=True)
     gender = models.CharField(max_length=10)
-    agree = models.BooleanField(default=True)
+    agree = models.BooleanField(default=None)
 
     USERNAME_FIELD = 'username'
 
