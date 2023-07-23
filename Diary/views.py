@@ -12,3 +12,4 @@ class Sub(APIView):
         return render(request, 'Diary/main.html')
 
 
+
