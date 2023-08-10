@@ -1,0 +1,77 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>마음이음</title>
+    <link rel="stylesheet" href="{% static 'css/write.css' %}">
+    <script src="{% static 'js/write.js' %}"></script>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">
+        <img src="{% static 'images/Rectangle.png' %}" alt="Logo">
+        <div class="logo-text">마음이음</div>
+    </div>
+    <ul class="nav-links">
+        <li><a class="diary-link" href="#">일기쓰기</a></li>
+        <li><a class="analysis-link" href="#">감정분석</a></li>
+        <li><a class="mypage-link" href="#">마이페이지</a></li>
+    </ul>
+
+</nav>
+
+<div class="main-content">
+    <div class="diary-writing">일기쓰기</div>
+    <div class="privacy-label">공개/비밀 여부</div>
+    <div class="emotion-label">오늘의 감정</div>
+
+    <div class="emotion-images">
+        <div class="emotion-image">
+            <img src="{% static 'images/기쁨.png' %}" alt="Emotion Image">
+            <div class="emotion-text">기쁨</div>
+        </div>
+        <div class="emotion-image">
+            <img src="{% static 'images/설렘.png' %}" alt="Emotion Image">
+            <div class="emotion-text">설렘</div>
+        </div>
+        <div class="emotion-image">
+            <img src="{% static 'images/슬픔.png' %}" alt="Emotion Image">
+            <div class="emotion-text">슬픔</div>
+        </div>
+        <div class="emotion-image">
+            <img src="{% static 'images/분노.png' %}" alt="Emotion Image">
+            <div class="emotion-text">분노</div>
+        </div>
+        <div class="emotion-image">
+            <img src="{% static 'images/외로움.png' %}" alt="Emotion Image">
+            <div class="emotion-text">외로움</div>
+        </div>
+    </div>
+
+
+    <div class="privacy-buttons">
+        <div class="privacy-button">공개</div> <!-- 공개 버튼 -->
+        <div class="privacy-button">비밀</div> <!-- 비밀 버튼 -->
+    </div>
+
+    <input type="text" class="title-input" placeholder="제목을 입력해주세요.">
+    <input type="text" class="content-input" placeholder="일기 내용을 입력해주세요.">
+
+    <div class="thumbnail-upload-button">
+        <div class="thumbnail-upload-text">썸네일 이미지 업로드</div>
+    </div>
+
+
+    <!-- 작성 완료 버튼 -->
+    <div class="submit-button">
+        <span class="submit-button-text">작성완료</span>
+    </div>
+
+
+</div>
+</body>
+</html>
