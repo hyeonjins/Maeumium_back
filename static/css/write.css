@@ -289,6 +289,10 @@ body {
     line-height: normal;
 }
 
+label.thumbnail-upload-text {
+    cursor: pointer;
+}
+
 /* 업로드 버튼 칸 스타일 */
 .thumbnail-upload-button {
     width: 193px;
@@ -304,6 +308,7 @@ body {
     left: 172px;
     top: 1058px;
 }
+
 
 /* 작성 완료 버튼 스타일 */
 .submit-button {
@@ -331,5 +336,6 @@ body {
     font-weight: 500;
     line-height: 24px;
     text-align: center;
+    cursor: pointer;
 }
 

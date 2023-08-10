@@ -4,6 +4,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const contentInput = document.querySelector(".content-input");
     const emotionImages = document.querySelectorAll(".emotion-image");
     const privacyButtons = document.querySelectorAll(".privacy-button");
+    const thumbnailUploadButton = document.querySelector(".thumbnail-upload-button");
+    const thumbnailUploadInput = document.getElementById("thumbnail-upload");
+
+    thumbnailUploadButton.addEventListener("click", function () {
+        thumbnailUploadInput.click(); // 파일 업로드 요소 클릭 이벤트 발생
+    });
+
+    thumbnailUploadInput.addEventListener("change", function () {
+        const selectedFile = thumbnailUploadInput.files[0]; // 선택한 파일 가져오기
+        if (selectedFile) {
+            // 여기에 파일 업로드 처리 로직을 추가하세요 (예: 서버로 파일 전송 등)
+            alert("파일 업로드 완료: " + selectedFile.name);
+        }
+    });
 
     submitButton.addEventListener("click", function () {
         let isValid = true;
@@ -46,7 +60,6 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("작성 완료되었습니다!");
             // 메인 페이지로 이동하는 코드 추가
             window.location.href = "URL_메인_페이지"; // 메인 페이지의 URL로 변경해주세요
-
         }
     });
 
@@ -63,7 +76,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-
     privacyButtons.forEach(privacyButton => {
         privacyButton.addEventListener("click", function () {
             if (this.classList.contains("selected")) {
@@ -77,4 +89,3 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
-
