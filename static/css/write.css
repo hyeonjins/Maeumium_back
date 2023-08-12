@@ -1,121 +1,22 @@
+.roots {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 body {
     margin: 0;
     padding: 0;
     font-family: 'GangwonEduAll', sans-serif;
-}
-
-/*
-.page-container {
-    border: 1px solid #000;
-    background: #FCFCFC;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 1, 0.25);
-    width: 1440px;
-    height: 1222px;
-    position: relative;
-}
-*/
-.navbar {
     display: flex;
-    width: 1444px;
-    height: 67px;
-    left: -4px;
-
-    flex-shrink: 0;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #F0E3F8;
-}
-
-.logo {
-    position: absolute;
-    left: 165px;
-    top: 4px;
-    bottom: 1156px;
-    display: flex;
-    align-items: center;
-    color: #FFF;
-
-    line-height: normal;
-    width: 146.55px;
-    height: 62px;
-
-}
-
-.logo-text {
-    line-height: 27px;
-    font-size: 23.846px;
-    font-weight: 600;
-    /*-webkit-text-fill-color: #FFFFFF; /* 텍스트 내용 흰색 */
-    /*-webkit-text-stroke: 0.02px #C0C0C0; /* 텍스트 테두리 추가 */
-
-}
-
-.logo img {
-    width: 59.832px;
-    height: 62px;
-    flex-shrink: 0;
-    margin-right: 10px;
-    /*background: url('/static/images/Rectangle.png'), lightgray -42.056px -34.252px / 223.188% 215.385% no-repeat;*/
-}
-
-
-.nav-links {
-    position: relative;
-    list-style: none;
-    display: flex;
-    left: 761px;
-}
-
-.nav-links li a {
-    position: relative;
-
-    width: 181px;
-    height: 23px;
-
-    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 
-    text-decoration: none;
-    transition: color 0.3s;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-
 }
 
-/* 일기쓰기 링크 스타일 */
-.diary-link {
-    color: #7209B7; /* 변경 가능한 컬러로 설정 */
-}
-
-.diary-link:hover {
-    color: #A6212A; /* 변경 가능한 컬러로 설정 */
-    cursor: pointer;
-}
-
-/* 감정분석 링크 스타일 */
-.analysis-link {
-    color: #333; /* 변경 가능한 컬러로 설정 */
-}
-
-.analysis-link:hover {
-    color: #A6212A; /* 변경 가능한 컬러로 설정 */
-    cursor: pointer;
-}
-
-/* 마이페이지 링크 스타일 */
-.mypage-link {
-    color: #333; /* 변경 가능한 컬러로 설정 */
-}
-
-.mypage-link:hover {
-    color: #A6212A; /* 변경 가능한 컬러로 설정 */
-    cursor: pointer;
-}
-
-
-.diary-writing {
+.writing-label {
     width: 181px;
     height: 34px;
     top: 153px;
@@ -339,3 +240,7 @@ label.thumbnail-upload-text {
     cursor: pointer;
 }
 
+/* footer */
+.wrapper {
+    height: 50px;
+}

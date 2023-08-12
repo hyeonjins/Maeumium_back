@@ -7,47 +7,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>마음이음</title>
     <link rel="stylesheet" href="{% static 'css/write.css' %}">
-    <script src="{% static 'js/write.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
 </head>
 <body>
-
+<!-- nav바 -->
 <nav class="navbar">
-    <div class="logo">
-        <img src="{% static 'images/Rectangle.png' %}" alt="Logo">
-        <div class="logo-text">마음이음</div>
+    <div class="navbar__logo">
+        <a><img src="{% static 'image/logo_white.png' %}" alt="Logo" width="145px" height="62px"></a>
     </div>
-    <ul class="nav-links">
-        <li><a class="diary-link" href="#">일기쓰기</a></li>
-        <li><a class="analysis-link" href="#">감정분석</a></li>
-        <li><a class="mypage-link" href="#">마이페이지</a></li>
+    <ul class="navbar__menu">
+        <li class="writing"><a href="#">일기쓰기</a></li>
+        <li class="analysis"><a href="#">감정분석</a></li>
+        <li class="mypage"><a href="#">마이페이지</a></li>
     </ul>
 
 </nav>
 
 <div class="main-content">
-    <div class="diary-writing">일기쓰기</div>
+    <div class="writing-label">일기쓰기</div>
     <div class="privacy-label">공개/비밀 여부</div>
     <div class="emotion-label">오늘의 감정</div>
 
     <div class="emotion-images">
         <div class="emotion-image">
-            <img src="{% static 'images/기쁨.png' %}" alt="Emotion Image">
+            <img src="{% static 'image/기쁨.png' %}" alt="Emotion Image">
             <div class="emotion-text">기쁨</div>
         </div>
         <div class="emotion-image">
-            <img src="{% static 'images/설렘.png' %}" alt="Emotion Image">
+            <img src="{% static 'image/설렘.png' %}" alt="Emotion Image">
             <div class="emotion-text">설렘</div>
         </div>
         <div class="emotion-image">
-            <img src="{% static 'images/슬픔.png' %}" alt="Emotion Image">
+            <img src="{% static 'image/슬픔.png' %}" alt="Emotion Image">
             <div class="emotion-text">슬픔</div>
         </div>
         <div class="emotion-image">
-            <img src="{% static 'images/분노.png' %}" alt="Emotion Image">
+            <img src="{% static 'image/분노.png' %}" alt="Emotion Image">
             <div class="emotion-text">분노</div>
         </div>
         <div class="emotion-image">
-            <img src="{% static 'images/외로움.png' %}" alt="Emotion Image">
+            <img src="{% static 'image/외로움.png' %}" alt="Emotion Image">
             <div class="emotion-text">외로움</div>
         </div>
     </div>
@@ -72,7 +71,110 @@
         <span class="submit-button-text">작성완료</span>
     </div>
 
-
 </div>
+<!-- footer -->
+<div class="wrapper"></div>
+<footer>
+    ⓒ 마음이음. 2023 All rights reserved.
+</footer>
 </body>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const submitButton = document.querySelector(".submit-button");
+        const titleInput = document.querySelector(".title-input");
+        const contentInput = document.querySelector(".content-input");
+        const emotionImages = document.querySelectorAll(".emotion-image");
+        const privacyButtons = document.querySelectorAll(".privacy-button");
+        const thumbnailUploadButton = document.querySelector(".thumbnail-upload-button");
+        const thumbnailUploadInput = document.getElementById("thumbnail-upload");
+
+        thumbnailUploadButton.addEventListener("click", function () {
+            thumbnailUploadInput.click(); // 파일 업로드 요소 클릭 이벤트 발생
+        });
+
+        thumbnailUploadInput.addEventListener("change", function () {
+            const selectedFile = thumbnailUploadInput.files[0]; // 선택한 파일 가져오기
+            if (selectedFile) {
+                // 여기에 파일 업로드 처리 로직을 추가하세요 (예: 서버로 파일 전송 등)
+                alert("파일 업로드 완료: " + selectedFile.name);
+            }
+        });
+
+        submitButton.addEventListener("click", function () {
+            let isValid = true;
+
+            if (titleInput.value.trim() === "") {
+                alert("제목은 필수로 입력해야 합니다!");
+                isValid = false;
+            }
+
+            let selectedEmotion = false;
+            emotionImages.forEach(emotionImage => {
+                if (emotionImage.classList.contains("selected")) {
+                    selectedEmotion = true;
+                }
+            });
+
+            if (!selectedEmotion) {
+                alert("오늘의 감정 선택은 필수입니다!");
+                isValid = false;
+            }
+
+            let selectedPrivacy = false;
+            privacyButtons.forEach(privacyButton => {
+                if (privacyButton.classList.contains("selected")) {
+                    selectedPrivacy = true;
+                }
+            });
+
+            if (!selectedPrivacy) {
+                alert("공개/비밀 여부 선택은 필수입니다!");
+                isValid = false;
+            }
+
+            if (contentInput.value.trim() === "") {
+                alert("내용 입력은 필수입니다!");
+                isValid = false;
+            }
+
+            if (isValid) {
+                alert("작성 완료되었습니다!");
+                // 메인 페이지로 이동하는 코드 추가
+                window.location.href = "URL_메인_페이지"; // 메인 페이지의 URL로 변경해주세요
+            }
+        });
+
+        emotionImages.forEach(emotionImage => {
+            emotionImage.addEventListener("click", function () {
+                if (this.classList.contains("selected")) {
+                    this.classList.remove("selected");
+                } else {
+                    emotionImages.forEach(emotion => {
+                        emotion.classList.remove("selected");
+                    });
+                    this.classList.add("selected");
+                }
+            });
+        });
+
+        privacyButtons.forEach(privacyButton => {
+            privacyButton.addEventListener("click", function () {
+                if (this.classList.contains("selected")) {
+                    this.classList.remove("selected");
+                } else {
+                    privacyButtons.forEach(privacy => {
+                        privacy.classList.remove("selected");
+                    });
+                    this.classList.add("selected");
+                }
+            });
+        });
+    });
+
+
+</script>
+
+
 </html>
