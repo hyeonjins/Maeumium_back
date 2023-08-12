@@ -1,0 +1,46 @@
+/* 로그인 창 */
+.logo {
+    padding-bottom: 20px;
+}
+.login_wrapper input{
+    display: flex;
+    flex-direction: column;
+    background: none;
+    border: none;
+    width: 361px;
+    height: 45px;
+    border-bottom: 0.2px solid #A9AFB3;
+    font-family: 'Inter';
+    font-weight: 'Medium';
+    font-size: 12px;
+}
+
+.login_button input{
+    margin-top: 30px;
+    border: none;
+    width: 361px;
+    height: 47px;
+    background: #7209B7;
+    font-family: 'Inter';
+    font-weight: 'Medium';
+    border-radius: 5px;
+    font-size: 12px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.join {
+    font-size: 10px;
+    font-weight: 10px;
+    font-family: 'GangwonEduAll';
+    font-weight: bold;
+    color: #000000;
+    text-decoration : underline;
+    padding-top: 10px;
+    padding-left: 220px;
+}
+
+/* footer */
+.wrapper {
+    height: 150px;
+}
