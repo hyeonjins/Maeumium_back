@@ -1,3 +1,7 @@
+# from Diary.settings import MEDIA_ROOT
+
+
+# Create your views here.
 from django.contrib.auth.hashers import make_password, check_password
 from django.shortcuts import render
 from rest_framework.response import Response
@@ -6,34 +10,30 @@ from rest_framework.views import APIView
 from .models import User
 
 
-# Create your views here.
 class Join(APIView):
     def get(self, request):
         return render(request, "user/join.html")
 
     def post(self, request):
-        # TODO 회원가입
-        phone = request.data.get('phone')
-        username = request.data.get('username')
         name = request.data.get('name')
+        email = request.data.get('email')
+        id = request.data.get('id')
         password = request.data.get('password')
-        agree = request.data.get('agree') == 'true'
-        gender = request.data.get('gender')
+        nickname = request.data.get('nickname')
 
-        if not agree:
-            return Response(status=500, data=dict(message='서비스 이용약관 동의를 하지 않았습니다.'))
-        if User.objects.filter(phone=phone).exists():
-            return Response(status=500, data=dict(message='해당 핸드폰 번호가 존재합니다.'))
-        if User.objects.filter(username=username).exists():
-            return Response(status=500, data=dict(message='아이디 "' + username + '"이(가) 존재합니다.'))
+        if User.objects.filter(id=id).exists():
+            return Response(status=400, data=dict(message='이미 사용 중인 아이디입니다.'))
+        if User.objects.filter(nickname=nickname).exists():
+            return Response(status=400, data=dict(message='이미 사용 중인 닉네임입니다.'))
 
-        User.objects.create(phone=phone,
-                            username=username,
-                            name=name,
-                            password=make_password(password),
-                            agree=agree,
-                            gender=gender,
-                            )
+        user = User.objects.create(
+            name=name,
+            email=email,
+            id=id,
+            password=make_password(password),
+            nickname=nickname,
+        )
+        # You can also add extra fields like gender to the user instance
 
         return Response(status=200, data=dict(message="회원가입 성공했습니다. 로그인 해주세요."))
 
@@ -64,6 +64,4 @@ class Login(APIView):
         request.session['loginCheck'] = True
         request.session['username'] = user.username
 
-
         return Response(status=200, data=dict(message='로그인에 성공했습니다.'))
-

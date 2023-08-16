@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
-import json
+import json, os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'user',
     'Diary',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -78,9 +79,12 @@ WSGI_APPLICATION = 'Diary.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'Diary',
+        'NAME': 'maeumium',
         'USER': 'root',
-        'PASSWORD': 'Qksksk10!Qksksk10!'
+        'PASSWORD': 'Qksksk10!Qksksk10!',
+        'HOST': 'localhost',
+        'PORT': '3306',
+
     }
 }
 
@@ -118,9 +122,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

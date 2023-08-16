@@ -12,16 +12,17 @@ class User(AbstractBaseUser):
         유저 폰번호
 
     """
-    username = models.CharField(max_length=24, unique=True)
-    name = models.CharField(max_length=24)
-    phone = models.EmailField(unique=True)
-    gender = models.CharField(max_length=10)
-    agree = models.BooleanField(default=None)
 
-    USERNAME_FIELD = 'username'
+    username = None
+    id = models.CharField(max_length=24, primary_key=True)
+    name = models.CharField(max_length=24)
+    email = models.EmailField(unique=True, default="example@example.com")
+    nickname = models.CharField(max_length=24, default="default_nickname")
+
+    USERNAME_FIELD = 'id'
 
     def __str__(self):
-        return self.username
+        return self.id
 
     @property
     def is_staff(self):

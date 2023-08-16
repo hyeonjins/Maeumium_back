@@ -4,12 +4,16 @@ body {
 }
 
 .root {
-    margin-top: 100px;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 li {
-    list-style-type: none;
-    list-style: none;
+	list-style-type: none;
+	list-style: none;
     padding-right: 40px;
 }
 
