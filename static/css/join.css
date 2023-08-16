@@ -1,0 +1,185 @@
+body {
+    font-family: 'Inter';
+    font-weight: 'Medium';
+}
+
+.root {
+    margin-top: 100px;
+}
+
+.joins {
+    display: flex;
+    flex-direction: row;
+}
+
+.receive {
+    width: 588px;
+    height: 702px;
+    font-size: 10px;
+    overflow: auto;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    margin: 50px;
+    padding: 20px;
+    box-shadow: 0px 4px 4px 0px #A9AFB3;
+}
+.join {
+    display: flex;
+    flex-direction: column;
+}
+.join_title {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'GangwonEduAll';
+}
+
+.join div {
+    font-size: 16px;
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+.join input{
+    display: flex;
+    /* flex-direction: column; */
+    background: none;
+    border: none;
+    width: 300px;
+    height: 45px;
+    border: 0.2px solid #A9AFB3;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.email_box {
+    display: flex;
+    flex-direction: row;
+}
+
+.join_email input {
+    display: flex;
+    flex-direction: column;
+    background: none;
+    border: none;
+    width: 219px;
+    height: 45px;
+    border: 0.2px solid #A9AFB3;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+.email_button{
+    border: none;
+    width: 75px;
+    height: 45px;
+    background: #7209B7;
+    border-radius: 5px;
+    font-size: 12px;
+    text-align: center;
+    color: #FFFFFF;
+    font-weight: 'Medium';
+}
+
+.id_box {
+    display: flex;
+    flex-direction: row;
+}
+
+.join_id input {
+    display: flex;
+    flex-direction: column;
+    background: none;
+    border: none;
+    width: 219px;
+    height: 45px;
+    border: 0.2px solid #A9AFB3;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+.id_button{
+    border: none;
+    width: 75px;
+    height: 45px;
+    background: #7209B7;
+    border-radius: 5px;
+    font-size: 12px;
+    text-align: center;
+    color: #FFFFFF;
+    font-weight: 'Medium';
+}
+
+.nickname_box {
+    display: flex;
+    flex-direction: row;
+}
+
+.join_nickname input {
+    display: flex;
+    flex-direction: column;
+    background: none;
+    border: none;
+    width: 219px;
+    height: 45px;
+    border: 0.2px solid #A9AFB3;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+.nickname_button{
+    border: none;
+    width: 75px;
+    height: 45px;
+    background: #7209B7;
+    border-radius: 5px;
+    font-size: 12px;
+    text-align: center;
+    color: #FFFFFF;
+    font-weight: 'Medium';
+}
+
+.join_checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.join_checkbox .checkbox_text {
+    font-size: 10px;
+    text-align: center;
+}
+
+.join_checkbox input[type="checkbox"] {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 18px;
+    height: 18px;
+    border: 0.2px solid #A9AFB3;
+}
+
+.join_checkbox_button {
+    text-align: center;
+}
+.join_checkbox_button button{
+    border: none;
+    width: 115px;
+    height: 45px;
+    background: #7209B7;
+    border-radius: 5px;
+    font-size: 12px;
+    text-align: center;
+    color: #FFFFFF;
+    font-weight: 'Medium';
+    justify-content: center;
+    align-items: center;
+}
+
+/* footer */
+.wrapper {
+    height: 50px;
+}
