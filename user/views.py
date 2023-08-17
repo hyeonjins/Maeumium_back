@@ -15,16 +15,12 @@ class Join(APIView):
         return render(request, "user/join.html")
 
     def post(self, request):
+        id = request.data.get('id')
+        nickname = request.data.get('nickname')
         name = request.data.get('name')
         email = request.data.get('email')
-        id = request.data.get('id')
         password = request.data.get('password')
-        nickname = request.data.get('nickname')
-
-        if User.objects.filter(id=id).exists():
-            return Response(status=400, data=dict(message='이미 사용 중인 아이디입니다.'))
-        if User.objects.filter(nickname=nickname).exists():
-            return Response(status=400, data=dict(message='이미 사용 중인 닉네임입니다.'))
+        date = request.data.get('date')
 
         user = User.objects.create(
             name=name,
@@ -32,10 +28,28 @@ class Join(APIView):
             id=id,
             password=make_password(password),
             nickname=nickname,
+            date=date,
         )
         # You can also add extra fields like gender to the user instance
 
         return Response(status=200, data=dict(message="회원가입 성공했습니다. 로그인 해주세요."))
+
+
+class CheckDuplicate(APIView):
+    def get(self, request):
+        nickname = request.query_params.get('nickname', None)
+        id = request.query_params.get('id', None)
+
+        response_data = {}
+
+        if nickname:
+            if User.objects.filter(nickname=nickname).exists():
+                return Response(status=400, data=dict(message='이미 사용 중인 닉네임입니다.'))
+            return Response(status=200, data=dict(message='사용 가능한 닉네임입니다.'))
+        if id:
+            if User.objects.filter(id=id).exists():
+                return Response(status=400, data=dict(message='이미 사용 중인 아이디입니다.'))
+            return Response(status=200, data=dict(message='사용 가능한 아이디입니다.'))
 
 
 class Login(APIView):
@@ -44,16 +58,16 @@ class Login(APIView):
 
     def post(self, request):
         # TODO 로그인
-        username = request.data.get('username', None)
+        id = request.data.get('id', None)
         password = request.data.get('password', None)
 
-        if username is None:
+        if id is None:
             return Response(status=500, data=dict(message='아이디를 입력해주세요'))
 
         if password is None:
             return Response(status=500, data=dict(message='비밀번호를 입력해주세요'))
 
-        user = User.objects.filter(username=username).first()
+        user = User.objects.filter(id=id).first()
 
         if user is None:
             return Response(status=500, data=dict(message='입력정보가 잘못되었습니다.'))
@@ -62,6 +76,6 @@ class Login(APIView):
             return Response(status=500, data=dict(message='입력정보가 잘못되었습니다.'))
 
         request.session['loginCheck'] = True
-        request.session['username'] = user.username
+        request.session['id'] = user.id
 
         return Response(status=200, data=dict(message='로그인에 성공했습니다.'))

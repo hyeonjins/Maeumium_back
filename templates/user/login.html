@@ -5,6 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
     <link rel="stylesheet" href="{% static 'css/global.css' %}">
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
     <title>로그인</title>
@@ -33,9 +37,9 @@
             <input type="password" name="password" placeholder="비밀번호를 입력해주세요" required>
         </div>
         <div class="login_button">
-            <input type="submit" value="로그인">
+            <input type="submit" id="submit_login" value="로그인">
         </div>
-        <a href="{% static 'user/join.html' %}">
+        <a href="/user/join">
             <div class="join">회원이 아니신가요? 회원가입 하러 가기</div>
         </a>
     </form>
@@ -46,6 +50,37 @@
 <footer>
     ⓒ 마음이음. 2023 All rights reserved.
 </footer>
+
+<script>
+    $("#login-form").submit(function (event) {
+        event.preventDefault(); // 폼 기본 제출 동작을 막음
+
+        let id = $("input[name='id']").val();
+        let password = $("input[name='password']").val();
+
+        // AJAX 통신
+        $.ajax({
+            url: '/user/login',  // 실제 백엔드의 URL로 변경해야 합니다.
+            data: {
+                id: id,
+                password: password,
+            },
+            method: "POST",
+            dataType: "json",
+            success: function (data) {
+                console.log("성공");
+                alert("로그인 성공");
+                location.href = "/main";
+
+            },
+            error: function (request, status, error) {
+                let data = JSON.parse(request.responseText);
+                console.log(data.message);
+                alert(data.message);
+            }
+        });
+    });
+</script>
 
 </body>
 </html>

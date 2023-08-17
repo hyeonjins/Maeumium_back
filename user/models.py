@@ -14,10 +14,11 @@ class User(AbstractBaseUser):
     """
 
     username = None
-    id = models.CharField(max_length=24, primary_key=True)
+    id = models.CharField(unique=True, max_length=24, primary_key=True)
     name = models.CharField(max_length=24)
-    email = models.EmailField(unique=True, default="example@example.com")
-    nickname = models.CharField(max_length=24, default="default_nickname")
+    date = models.DateField(null=True, blank=False)
+    email = models.EmailField(default="example@example.com")
+    nickname = models.CharField(unique=True, max_length=24, default="default_nickname")
 
     USERNAME_FIELD = 'id'
 
