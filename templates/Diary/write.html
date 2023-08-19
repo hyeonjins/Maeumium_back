@@ -1,20 +1,22 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>마음이음</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="{% static 'css/global.css' %}">
     <link rel="stylesheet" href="{% static 'css/write.css' %}">
+    <title>일기쓰기</title>
 
 </head>
 <body>
 <!-- nav바 -->
 <nav class="navbar">
     <div class="navbar__logo">
-        <a><img src="{% static 'image/logo_white.png' %}" alt="Logo" width="145px" height="62px"></a>
+        <a href="{% static 'mainpage/main.html' %}"><img src="{% static 'image/logo_white.png' %}" width="145px"
+                                                         height="62px"></a>
     </div>
     <ul class="navbar__menu">
         <li class="writing"><a href="#">일기쓰기</a></li>
@@ -23,63 +25,69 @@
     </ul>
 
 </nav>
+<div class="root">
+    <div class="write">
+        <div class="write_diary">일기쓰기</div>
+        <div class="write_privacy">
+            <div class="write_privacy_title">공개/비밀 여부</div>
+            <div class="write_privacy_buttons">
+                <div class="privacy_button">공개</div> <!-- 공개 버튼 -->
+                <div class="privacy_button">비밀</div> <!-- 비밀 버튼 -->
+            </div>
+        </div>
 
-<div class="main-content">
-    <div class="writing-label">일기쓰기</div>
-    <div class="privacy-label">공개/비밀 여부</div>
-    <div class="emotion-label">오늘의 감정</div>
 
-    <div class="emotion-images">
-        <div class="emotion-image">
-            <img src="{% static 'image/기쁨.png' %}" alt="Emotion Image">
-            <div class="emotion-text">기쁨</div>
+        <div class="write_emotion">
+            <div class="write_emotion_title">오늘의 감정</div>
+
+            <div class="write_emotion_images">
+                <div class="emotion_image">
+                    <img src="{% static 'image/기쁨.png' %}" alt="Emotion Image">
+                    <div class="emotion_text">기쁨</div>
+                </div>
+                <div class="emotion_image">
+                    <img src="{% static 'image/설렘.png' %}" alt="Emotion Image">
+                    <div class="emotion_text">설렘</div>
+                </div>
+                <div class="emotion_image">
+                    <img src="{% static 'image/슬픔.png' %}" alt="Emotion Image">
+                    <div class="emotion_text">슬픔</div>
+                </div>
+                <div class="emotion_image">
+                    <img src="{% static 'image/분노.png' %}" alt="Emotion Image">
+                    <div class="emotion_text">분노</div>
+                </div>
+                <div class="emotion_image">
+                    <img src="{% static 'image/외로움.png' %}" alt="Emotion Image">
+                    <div class="emotion_text">외로움</div>
+                </div>
+            </div>
         </div>
-        <div class="emotion-image">
-            <img src="{% static 'image/설렘.png' %}" alt="Emotion Image">
-            <div class="emotion-text">설렘</div>
+
+
+        <input type="text" class="write_title" placeholder="제목을 입력해주세요.">
+        <input type="text" class="write_content" placeholder="일기 내용을 입력해주세요.">
+
+        <div class="thumbnail_upload_button">
+            <label for="thumbnail_upload" class="thumbnail_upload_text">썸네일 이미지 업로드</label>
+            <input type="file" id="thumbnail_upload" style="display: none;">
         </div>
-        <div class="emotion-image">
-            <img src="{% static 'image/슬픔.png' %}" alt="Emotion Image">
-            <div class="emotion-text">슬픔</div>
-        </div>
-        <div class="emotion-image">
-            <img src="{% static 'image/분노.png' %}" alt="Emotion Image">
-            <div class="emotion-text">분노</div>
-        </div>
-        <div class="emotion-image">
-            <img src="{% static 'image/외로움.png' %}" alt="Emotion Image">
-            <div class="emotion-text">외로움</div>
+
+
+        <!-- 작성 완료 버튼 -->
+        <div class="submit_button">
+            <span class="submit_button_text">작성완료</span>
         </div>
     </div>
 
 
-    <div class="privacy-buttons">
-        <div class="privacy-button">공개</div> <!-- 공개 버튼 -->
-        <div class="privacy-button">비밀</div> <!-- 비밀 버튼 -->
-    </div>
-
-    <input type="text" class="title-input" placeholder="제목을 입력해주세요.">
-    <input type="text" class="content-input" placeholder="일기 내용을 입력해주세요.">
-
-    <div class="thumbnail-upload-button">
-        <label for="thumbnail-upload" class="thumbnail-upload-text">썸네일 이미지 업로드</label>
-        <input type="file" id="thumbnail-upload" style="display: none;">
-    </div>
-
-
-    <!-- 작성 완료 버튼 -->
-    <div class="submit-button">
-        <span class="submit-button-text">작성완료</span>
-    </div>
-
-</div>
-<!-- footer -->
-<div class="wrapper"></div>
-<footer>
-    ⓒ 마음이음. 2023 All rights reserved.
-</footer>
+    <!-- footer -->
+    <div class="wrapper"></div>
+    <footer>
+        ⓒ 마음이음. 2023 All rights reserved.
+    </footer>
 </body>
-
+</div>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
