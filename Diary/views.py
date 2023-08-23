@@ -15,3 +15,5 @@ class Sub(APIView):
 class EmotionsView(APIView):
     def get(self, request):
         return render(request, "Diary/emotions.html")
+
+

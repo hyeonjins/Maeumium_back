@@ -25,6 +25,7 @@ urlpatterns = [
     path('user/', include('user.urls')),
     path('write/', Sub.as_view()),
     path('emotions/', EmotionsView.as_view()),
+    path
     # path('main/', Main.as_view()),
     # path('content/', include('content.urls')),
     # path('Diary/', include('Diary.urls')),

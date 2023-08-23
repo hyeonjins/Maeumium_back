@@ -1,3 +1,10 @@
 from django.shortcuts import render
+from rest_framework.views import APIView
 
-# Create your views here.
+
+def MyDiaryView(APIView):
+    return render(request, 'content/mydiary.html')
+
+
+def CoupleDiaryView(APIView):
+    return render(request, 'content/couplediary.html')

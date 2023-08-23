@@ -1,0 +1,54 @@
+.root {
+    font-family: 'GangwonEduAll';
+}
+
+.back {
+    padding: 20px 1200px 50px 0px;
+}
+.diary {
+    width: 1089px;
+    height: 759px;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    padding-left: 40px;
+}
+
+.diary_top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 80px;
+}
+
+.date {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.diary_button {
+    font-family: 'GangwonEduAll';
+    background-color: #E7F0FF;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 8px;
+    border-style: none;
+    width: 185px;
+    height: 40px;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2);
+    margin-right: 50px;
+}
+
+.diary_center {
+
+}
+
+.diary_title {
+    font-weight: bold;
+    font-size: 30px;
+    padding: 30px 0px 50px 0px;
+}
+
+.diary_content {
+    font-size: 20px;
+}
