@@ -27,7 +27,7 @@
         <div class="nickname_title">
             <div class="nickname1">{{ user.nickname }}</div>
             <div class="heart">♥</div>
-            <div class="nickname2">유저닉네임2</div>
+            <div class="nickname2">{{ content.partner_nickname }}</div>
         </div>
         <span class="month">6월</span>
         <div class="ward">
@@ -47,7 +47,7 @@
     <tbody>
 
     <tr>
-        <td class="sunday">1</td>
+        <td class="sunday">{{ day }}</td>
         <td>2
             <div class="emotion">
                 <img src="{% static 'image/flutter.png' %}" width="40px" height="38px">
@@ -107,8 +107,13 @@
 </table>
 
 <div class="calendar_bottom">
-    000일 째, 사랑 중♡
+    {% if content.start_date %}
+        {% with days_passed=now|date:"j" %}
+            {{ days_passed }}일 째, 사랑 중♡
+        {% endwith %}
+    {% endif %}
 </div>
+
 
 <!-- footer -->
 <div class="wrapper"></div>
@@ -117,5 +122,4 @@
 </footer>
 
 </body>
-
 </html>

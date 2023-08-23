@@ -1,6 +1,5 @@
 # from Diary.settings import MEDIA_ROOT
-
-
+from django.contrib.auth import authenticate, login
 # Create your views here.
 from django.contrib.auth.hashers import make_password, check_password
 from django.shortcuts import render
@@ -69,6 +68,7 @@ class Login(APIView):
             return Response(status=500, data=dict(message='비밀번호를 입력해주세요'))
 
         user = User.objects.filter(id=id).first()
+        #user = authenticate(request, username=id, password=password)
 
         if user is None:
             return Response(status=500, data=dict(message='입력정보가 잘못되었습니다.'))
@@ -78,6 +78,8 @@ class Login(APIView):
 
         request.session['loginCheck'] = True
         request.session['id'] = user.id
+
+        login(request, user)
 
         return Response(status=200, data=dict(message='로그인에 성공했습니다.'))
 

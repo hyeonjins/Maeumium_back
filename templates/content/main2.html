@@ -22,18 +22,18 @@
     </ul>
 </nav>
 <div class="root">
-    <div class="hello">반갑습니다. (닉네임) 님!</div>
+    <div class="hello">반갑습니다. {{ user.nickname }} 님!</div>
     <img src="{% static 'image/logo_black.png' %}" width="288px" height="122px">
     <div class="require">서비스를 이용하기 위해서는<br>
         연인의 닉네임과 두 분의 연애 시작일이 필요해요.
     </div>
-    <form action="./main2.html" id="login-form">
+    <form action="/content/main2/" id="partner-form">
         <div class="submit_wrapper">
             <input type="text" name="nickname" placeholder="상대방의 닉네임을 입력하세요." required>
             <input type="date" name="date" placeholder="상대방과의 연애 시작일을 입력하세요" required>
         </div>
         <div class="submit_button">
-            <input type="submit" value="제출하기">
+            <input type="submit" id="partner_submit_button" value="제출하기">
         </div>
     </form>
     <div class="notice">*잘못 제출한 경우 마이페이지에서 재제출 해주세요.</div>
@@ -47,4 +47,40 @@
 
 </body>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $("#partner_submit_button").click(function (event) {
+        event.preventDefault();
+
+        let nickname = $("input[name='nickname']").val();
+        let date = $("input[name='date']").val();
+        let csrfToken = "{{ csrf_token }}"; // Django 템플릿 태그를 사용하여 CSRF 토큰 값을 가져옴
+
+
+        $.ajax({
+            url: "/content/main2/",  // 서버 URL로 수정
+            method: "POST",
+            dataType: "json",
+            data: {
+                csrfmiddlewaretoken: csrfToken, // Django 템플릿 태그를 사용하여 CSRF 토큰 값을 가져옴
+                nickname: nickname,
+                date: date
+            },
+
+            dataType: "json",
+            success: function (data) {
+                console.log("성공");
+                alert("연결 성공");
+                location.href = "/content/main";
+
+            },
+            error: function (request, status, error) {
+                let data = JSON.parse(request.responseText);
+                console.log(data.message);
+                alert(data.message);
+            }
+        });
+    });
+
+</script>
 </html>

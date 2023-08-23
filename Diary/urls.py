@@ -18,7 +18,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from .views import Sub, EmotionsView, Main, Main2, Main3
+from .views import Sub, EmotionsView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,9 +26,6 @@ urlpatterns = [
     path('content/', include('content.urls')),
     path('write/', Sub.as_view()),
     path('emotions/', EmotionsView.as_view()),
-    path('main/', Main.as_view()),
-    path('main2/', Main2.as_view()),
-    path('main3/', Main3.as_view()),
     # path('content/', include('content.urls')),
     # path('Diary/', include('Diary.urls')),
 
