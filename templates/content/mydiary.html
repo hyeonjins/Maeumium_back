@@ -10,33 +10,35 @@
     <title>나의 다이어리</title>
 </head>
 <body>
-    <!-- nav바 -->
-    <nav class="navbar">
-        <div class="navbar__logo">
-            <a href="#"><img src="{% static 'image/logo_white.png' %}" width="145px" height="62px"></a>
-        </div>
-        <ul class="navbar__menu">
-            <li class="writing"><a href="#">일기쓰기</a></li>
-            <li class="analysis"><a href="#">감정분석</a></li>
-            <li class="login"><a href="#">로그인/회원가입</a></li>
-        </ul>
-    </nav>
+<!-- nav바 -->
+<nav class="navbar">
+    <div class="navbar__logo">
+        <a href="#"><img src="{% static 'image/logo_white.png' %}" width="145px" height="62px"></a>
+    </div>
+    <ul class="navbar__menu">
+        <li class="writing"><a href="#">일기쓰기</a></li>
+        <li class="analysis"><a href="#">감정분석</a></li>
+        <li class="login"><a href="#">로그인/회원가입</a></li>
+    </ul>
+</nav>
 
-    <div class="root">
-        <a href="../mainpage/main.html"><img class="back" src="../image//backward.png" width="18px" height="32px"></a>
+<div class="root">
+    <a href="../mainpage/main.html"><img class="back" src="{% static 'image/backward.png' %}" width="18px" height="32px"></a>
 
-        <div class="diary">
-            <div class="diary_top">
-                <div class="date">6월 14일</div>
-                <div class="emotions">
-                    <img src="../image/flutter.png" width="65px" height="62px">
-                    <img src="../image/flutter.png" width="65px" height="62px">
-                </div>
-                <a href="couplediary.html"><button class="diary_button">연인 일기 보기</button></a>
+    <div class="diary">
+        <div class="diary_top">
+            <div class="date">6월 14일</div>
+            <div class="emotions">
+                <img src="{% static 'image/flutter.png' %}" width="65px" height="62px">
+                <img src="{% static 'image/flutter.png' %}" width="65px" height="62px">
             </div>
-            <div class="diary_center">
-                <div class="diary_title">제목</div>
-                <div class="diary_bottom">
+            <a href="couplediary.html">
+                <button class="diary_button">연인 일기 보기</button>
+            </a>
+        </div>
+        <div class="diary_center">
+            <div class="diary_title">제목</div>
+            <div class="diary_bottom">
                 <div class="diary_image">일기에 올린 이미지</div>
                 <div class="diary_content">오늘은 감정이랑 연남동에 있는 예쁜 카페에 가서 맛있는 케이크랑 커피를 마셨다.<br>
                     카페에 간 후에는 일식집에 가서 후토마끼도 먹었다! 각자 학교에 다니느라 바빴는데 종강을 하고 오랜만에 데이트를 하니 너무 좋다. <br>
@@ -45,17 +47,18 @@
                     오늘은 감정이랑 연남동에 있는 예쁜 카페에 가서 맛있는 케이크랑 커피를 마셨다. <br>
                     카페에 간 후에는 일식집에 가서 후토마끼도 먹었다! 각자 학교에 다니느라 바빴는데 종강을 하고 오랜만에 데이트를 하니 너무 좋다. <br>
                     <br>
-                    종강을 해서 요즘은 자유롭고 좋은 것 같다! </div>
+                    종강을 해서 요즘은 자유롭고 좋은 것 같다!
                 </div>
-                </div>
-
+            </div>
         </div>
-    </div>
 
-    <!-- footer -->
-    <div class="wrapper"></div>
-    <footer>
-        ⓒ 마음이음. 2023 All rights reserved.
-    </footer>
+    </div>
+</div>
+
+<!-- footer -->
+<div class="wrapper"></div>
+<footer>
+    ⓒ 마음이음. 2023 All rights reserved.
+</footer>
 </body>
 </html>

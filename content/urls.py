@@ -1,8 +1,8 @@
 from django.urls import path
-from . import views
+
+from .views import MyDiary, CoupleDiary
 
 urlpatterns = [
-    # 기존 URL 패턴들...
-    path('mydiary/', MyDiaryView.as_view()),
-    path('couplediary/', CoupleDiaryView.as_view()),
+    path('mydiary', MyDiary.as_view(), name='mydiary'),
+    path('couplediary', CoupleDiary.as_view(), name='couplediary'),
 ]
