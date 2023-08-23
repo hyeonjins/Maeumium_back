@@ -1,9 +1,11 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="mydiary.css">
-    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mydiary.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>나의 다이어리</title>
 </head>
@@ -11,7 +13,7 @@
     <!-- nav바 -->
     <nav class="navbar">
         <div class="navbar__logo">
-            <a href="#"><img src="../image/logo_white.png" width="145px" height="62px"></a>
+            <a href="#"><img src="{% static 'image/logo_white.png' %}" width="145px" height="62px"></a>
         </div>
         <ul class="navbar__menu">
             <li class="writing"><a href="#">일기쓰기</a></li>
