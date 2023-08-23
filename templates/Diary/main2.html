@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>마음이음_메인2</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main2.css' %}">
+</head>
+
+<body>
+<!-- nav바 -->
+<nav class="navbar">
+    <div class="navbar__logo">
+        <a><img src="{% static 'image/logo_white.png' %}" width="145px" height="62px"></a>
+    </div>
+    <ul class="navbar__menu">
+        <li class="writing"><a href="#">일기쓰기</a></li>
+        <li class="analysis"><a href="#">감정분석</a></li>
+        <li class="login"><a href="#">로그인/회원가입</a></li>
+    </ul>
+</nav>
+<div class="root">
+    <div class="hello">반갑습니다. (닉네임) 님!</div>
+    <img src="{% static 'image/logo_black.png' %}" width="288px" height="122px">
+    <div class="require">서비스를 이용하기 위해서는<br>
+        연인의 닉네임과 두 분의 연애 시작일이 필요해요.
+    </div>
+    <form action="./main2.html" id="login-form">
+        <div class="submit_wrapper">
+            <input type="text" name="nickname" placeholder="상대방의 닉네임을 입력하세요." required>
+            <input type="date" name="date" placeholder="상대방과의 연애 시작일을 입력하세요" required>
+        </div>
+        <div class="submit_button">
+            <input type="submit" value="제출하기">
+        </div>
+    </form>
+    <div class="notice">*잘못 제출한 경우 마이페이지에서 재제출 해주세요.</div>
+    <div class="content">마음이음에서 나도 몰랐던 내 마음과 연인의 마음을 알아보세요!</div>
+</div>
+<!-- footer -->
+<div class="wrapper"></div>
+<footer>
+    ⓒ 마음이음. 2023 All rights reserved.
+</footer>
+
+</body>
+
+</html>

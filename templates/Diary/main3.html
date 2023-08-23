@@ -1,0 +1,87 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main3.css' %}">
+    <title>마음이음_메인3</title>
+</head>
+<body>
+<!-- nav바 -->
+<nav class="navbar">
+    <div class="navbar__logo">
+        <a><img src="{% static 'image/logo_white.png' %}" width="145px" height="62px"></a>
+    </div>
+    <ul class="navbar__menu">
+        <li class="writing"><a href="#">일기쓰기</a></li>
+        <li class="analysis"><a href="#">감정분석</a></li>
+        <li class="login"><a href="#">로그인/회원가입</a></li>
+    </ul>
+</nav>
+<div class="root">
+    <div class="introduce">
+        요즘 들어 부쩍 자주 연인과 다투지 않으시나요?<br><br><br>
+        나도 내 마음을 정리하지 못하고 있는 것 같을 때,<br><br><br>
+        연인과 함께 일기를 써보는 것은 어떨까요?<br><br>
+        일기를 통해 나의 마음과 상대방의 마음을 분석해 드릴게요.
+    </div>
+
+    <div class="introduce_maeumium">
+        <div class="introduce_maeumium1">일기로 잇는 너와 나의 마음<br><br>연인들을 위한 다이어리,</div>
+        <img src="{% static 'image/logo_black.png' %}" width="264px" height="111px">
+        <div class="introduce_maeumium1">입니다!</div>
+    </div>
+
+    <!-- 기능 소개 -->
+    <div class="introduce_product">마음이음 주요 기능</div>
+    <div class="introduce_products">
+        <div class="introduce_product_left">
+            <div class="main">
+                <div class="main_title">달력 형태로 일기와 감정 모아보기 제공</div>
+                <img src="{% static 'image/mainpage.png' %}" width="464px" height="376px">
+                <div class="main_content">마음이음 실제 메인 화면</div>
+            </div>
+
+            <div class="write">
+                <div class="write_title">연인들을 위한 일기쓰기 기능 (공유/비밀 여부 설정 가능)</div>
+                <img src="{% static 'image/write.png' %}" width="464px" height="376px">
+                <div class="write_content">마음이음 실제 ‘일기쓰기’ 화면</div>
+            </div>
+
+            <div class="diary">
+                <div class="diary_title">나의 일기와 상대방의 공개 여부에 따른 일기 상세 보기 제공</div>
+                <img src="{% static 'image/diary.png' %}" width="464px" height="376px">
+                <div class="diary_content">마음이음 실제 ‘일기 상세’ 화면</div>
+            </div>
+        </div>
+
+        <div class="introduce_product_right">
+            <div class="analysis">
+                <div class="analysis_title">일기를 통한 감정분석 리포트 제공</div>
+                <img src="{% static 'image/analysis.png' %}" width="464px" height="752px">
+                <div class="analysis_content">마음이음 실제 ‘감정분석’ 화면</div>
+            </div>
+            <div class="join">
+                <div class="join_content">나도 몰랐던 내 마음, 연인의 마음 보러가기</div>
+                <button class="join_button" onclick="redirectToJoinPage()">회원가입</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- footer -->
+<div class="wrapper"></div>
+<footer>
+    ⓒ 마음이음. 2023 All rights reserved.
+</footer>
+</body>
+
+<script>
+    function redirectToJoinPage() {
+        window.location.href = '/user/join';  // /user/join 페이지로 이동
+    }
+</script>
+</html>

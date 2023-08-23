@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마이페이지_메인</title>
 
-     <!-- jquery -->
+    <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 </head>
@@ -27,7 +27,7 @@
 </nav>
 
 <div class="mypage">마이페이지</div>
-<div class="nickname">(닉네임)님</div>
+<div class="nickname">{{ request.user.nickname }}님</div>
 
 <div class="current_pw">
     <div class="join_pw_title">현재 비밀번호</div>
@@ -40,5 +40,39 @@
 <footer>
     ⓒ 마음이음. 2023 All rights reserved.
 </footer>
+
+<script>
+    $(document).ready(function () {
+        $(".login_button").click(function () {
+            var nickname = $(".nickname").text();  // 화면에 표시된 닉네임 가져오기
+            var currentPassword = $("input[name='password']").val();  // 현재 비밀번호 입력값 가져오기
+
+            // AJAX 요청 보내기
+            $.ajax({
+                type: "POST",
+                url: "/check_password_endpoint/",  // 비밀번호 확인을 처리하는 엔드포인트 URL로 변경해야 합니다.
+                data: {
+                    nickname: nickname,
+                    password: currentPassword
+                },
+                success: function (response) {
+                    // 서버로부터 응답을 받았을 때 실행되는 코드
+                    if (response.success) {
+                        // 닉네임과 비밀번호가 일치하는 경우 마이페이지로 이동
+                        window.location.href = "/mypage/";  // 실제 마이페이지 URL로 변경해야 합니다.
+                    } else {
+                        alert("닉네임 또는 비밀번호가 일치하지 않습니다.");
+                    }
+                },
+                error: function (error) {
+                    // 에러가 발생했을 때 실행되는 코드
+                    alert("오류가 발생했습니다.");
+                }
+            });
+        });
+    });
+</script>
+
+
 </body>
 </html>

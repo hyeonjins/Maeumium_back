@@ -1,0 +1,55 @@
+.root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'GangwonEduAll';
+    font-weight: bold;
+    font-size: 40px;
+    text-align: center;
+}
+.submit_wrapper input{
+    display: flex;
+    background: none;
+    border: none;
+    width: 464px;
+    height: 45px;
+    border: 0.2px solid #A9AFB3;
+    font-family: 'Inter';
+    font-weight: 'Medium';
+    font-size: 12px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.submit_button input{
+    margin-top: 30px;
+    border: none;
+    width: 88px;
+    height: 47px;
+    background: #7209B7;
+    font-family: 'Inter';
+    font-weight: 'Medium';
+    border-radius: 5px;
+    font-size: 12px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 30px;
+}
+
+.hello {
+    padding-bottom: 70px;
+}
+
+.require {
+    padding-bottom: 100px;
+}
+
+.notice {
+    font-size: 30px;
+    padding-bottom: 50px;
+}
+
+.content {
+    color:#7209B7;
+    font-size: 20px;
+}

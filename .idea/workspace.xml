@@ -5,21 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="657d1c9b-d24f-410f-885a-f3e12b070115" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Diary/couplediary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Diary/mydiary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Diary.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Diary.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Diary/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Diary/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Diary/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Diary/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/content/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/content/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/content/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/content/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/content/couplediary.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/content/couplediary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/content/mydiary.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/content/mydiary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/mypageMain.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/mypageMain.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,29 +72,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/tkrhk/PycharmProjects/Diary&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/tkrhk/PycharmProjects/Jinstram",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;ChangesTree.GroupingKeys&quot;: [
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
     ],
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;sqlite&quot;
+    "DatabaseDriversLRU": [
+      "sqlite"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\tkrhk\PycharmProjects\Diary\static\image" />
@@ -167,7 +157,7 @@
       <workItem from="1691822586549" duration="39210000" />
       <workItem from="1692197303961" duration="26889000" />
       <workItem from="1692766519498" duration="4324000" />
-      <workItem from="1692774990161" duration="3354000" />
+      <workItem from="1692774990161" duration="11320000" />
     </task>
     <task id="LOCAL-00001" summary="체크박스 제외 로그인/회원가입 구현">
       <option name="closed" value="true" />
@@ -345,7 +335,23 @@
       <option name="project" value="LOCAL" />
       <updated>1692775213047</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="일기 상세">
+      <option name="closed" value="true" />
+      <created>1692778445724</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1692778445724</updated>
+    </task>
+    <task id="LOCAL-00024" summary="마이페이지">
+      <option name="closed" value="true" />
+      <created>1692778463710</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1692778463710</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -373,6 +379,7 @@
     <MESSAGE value="감정분석 페이지 추가" />
     <MESSAGE value="일기쓰기 페이지 js 수정" />
     <MESSAGE value="일기 상세" />
-    <option name="LAST_COMMIT_MESSAGE" value="일기 상세" />
+    <MESSAGE value="마이페이지" />
+    <option name="LAST_COMMIT_MESSAGE" value="마이페이지" />
   </component>
 </project>
