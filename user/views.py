@@ -4,6 +4,7 @@
 # Create your views here.
 from django.contrib.auth.hashers import make_password, check_password
 from django.shortcuts import render
+from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -79,3 +80,48 @@ class Login(APIView):
         request.session['id'] = user.id
 
         return Response(status=200, data=dict(message='로그인에 성공했습니다.'))
+
+
+class MyPage(APIView):
+    
+    def get(self, request):
+        return render(request, "user/mypage.html")
+
+    def post(self, request):
+        new_password = request.data.get('new_password', None)
+        user = request.user
+
+        if not user.is_authenticated:
+            return Response({"message": "로그인이 필요합니다."}, status=status.HTTP_401_UNAUTHORIZED)
+
+        if new_password is None:
+            return Response({"message": "새로운 비밀번호를 입력해주세요."}, status=status.HTTP_400_BAD_REQUEST)
+
+        # 비밀번호 변경 로직
+        user.password = make_password(new_password)
+        user.save()
+
+        return Response({"message": "비밀번호가 성공적으로 변경되었습니다."}, status=status.HTTP_200_OK)
+
+
+class MyPage2(APIView):
+    def get(self, request):
+        return render(request, "user/mypage2.html")
+
+    def post(self, request):
+        return render(request, "user/mypage2.html")
+
+
+class MyPageMain(APIView):
+    def get(self, request):
+        return render(request, "user/mypageMain.html")
+
+    def post(self, request):
+        return render(request, "user/mypageMain.html")
+
+class UnRegister(APIView):
+    def get(self, request):
+        return render(request, "user/unregister.html")
+
+    def post(self, request):
+        return render(request, "user/unregister.html")

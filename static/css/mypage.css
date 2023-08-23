@@ -1,0 +1,182 @@
+.roots {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.mypage {
+    font-family: 'GangwonEduAll';
+    font-size: 30px;
+    font-weight: bold;
+    padding: 50px 0px 30px 200px;
+}
+
+.nickname {
+    font-family: 'GangwonEduAll';
+    color: #89029C;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0px 0px 50px 200px;
+}
+
+.out {
+    font-size: 16px;
+    text-decoration: underline;
+    padding-left: 1000px;
+    padding-bottom: 50px;
+}
+
+.pwChange {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Inter';
+    padding-bottom: 30px;
+}
+
+.new_pw {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: 'Inter';
+    font-size: 16px;
+    text-align: left;
+    padding-bottom: 30px;
+    padding-right: 50px;
+}
+
+.new_pw input{
+    display: flex;
+    background: none;
+    border: none;
+    width: 300px;
+    height: 45px;
+    border: 0.2px solid #A9AFB3;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-left: 30px;
+}
+
+.new_pw_cf {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.new_pw_cf input{
+    background: none;
+    border: none;
+    width: 300px;
+    height: 45px;
+    border: 0.2px solid #A9AFB3;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-left: 30px;
+}
+
+.pw_button{
+    border: none;
+    width: 75px;
+    height: 45px;
+    background: #7209B7;
+    border-radius: 5px;
+    font-size: 12px;
+    text-align: center;
+    color: #FFFFFF;
+    font-weight: 'Medium';
+    margin-left: 10px;
+}
+
+.coupleConnection {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Inter';
+    padding: 80px 0px 30px 0px;
+}
+
+.coupleConnection input{
+    display: flex;
+    /* flex-direction: column; */
+    background: none;
+    border: none;
+    width: 300px;
+    height: 45px;
+    border: 0.2px solid #A9AFB3;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-left: 30px;
+}
+
+
+.couple_button{
+    border: none;
+    width: 75px;
+    height: 45px;
+    background: #7209B7;
+    border-radius: 5px;
+    font-size: 12px;
+    text-align: center;
+    color: #FFFFFF;
+    font-weight: 'Medium';
+    margin-left: 10px;
+}
+
+.coupleConnection_title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.coupleConnection_content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 30px;
+}
+.coupleConnection_title input{
+    display: flex;
+    /* flex-direction: column; */
+    background: none;
+    border: none;
+    width: 300px;
+    height: 45px;
+    border: 0.2px solid #A9AFB3;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-left: 30px;
+}
+
+.coupleConnection_content input{
+    display: flex;
+    /* flex-direction: column; */
+    background: none;
+    border: none;
+    width: 300px;
+    height: 45px;
+    border: 0.2px solid #A9AFB3;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-left: 170px;
+}
+
+
+.couple_end{
+    border: none;
+    width: 75px;
+    height: 45px;
+    background: #7209B7;
+    border-radius: 5px;
+    font-size: 12px;
+    text-align: center;
+    color: #FFFFFF;
+    font-weight: 'Medium';
+    margin-left: 150px;
+}
+
+.new_couple {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 30px;
+    padding-right: 150px;
+    padding-bottom: 80px;
+}

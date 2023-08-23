@@ -1,0 +1,35 @@
+.mypage {
+    font-family: 'GangwonEduAll';
+    font-size: 30px;
+    font-weight: bold;
+    padding: 50px 0px 30px 200px;
+}
+
+.nickname {
+    font-family: 'GangwonEduAll';
+    color: #89029C;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0px 0px 200px 200px;
+}
+
+.current_pw {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 400px;
+}
+
+.current_pw input{
+    display: flex;
+    /* flex-direction: column; */
+    background: none;
+    border: none;
+    width: 300px;
+    height: 45px;
+    border: 0.2px solid #A9AFB3;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-left: 30px;
+}
