@@ -21,7 +21,7 @@
     padding-bottom: 400px;
 }
 
-.current_pw input{
+.current_pw input {
     display: flex;
     /* flex-direction: column; */
     background: none;
@@ -32,4 +32,17 @@
     border-radius: 5px;
     font-size: 12px;
     margin-left: 30px;
+}
+
+.pw_button {
+    border: none;
+    width: 75px;
+    height: 45px;
+    background: #7209b7;
+    border-radius: 5px;
+    font-size: 12px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: "Medium";
+    margin-left: 10px;
 }

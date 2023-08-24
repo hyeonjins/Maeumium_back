@@ -14,6 +14,7 @@
 
 </head>
 <body>
+{% csrf_token %}
 <!-- nav바 -->
 <nav class="navbar">
     <div class="navbar__logo">
@@ -22,7 +23,7 @@
     <ul class="navbar__menu">
         <li class="writing"><a href="{% url 'write' %}">일기쓰기</a></li>
         <li class="analysis"><a href="{% url 'emotions' %}">감정분석</a></li>
-        <li class="my_page"><a href="{% url 'mypage' %}">마이페이지</a></li>
+        <li class="my_page"><a href="{% url 'mypageMain' %}">마이페이지</a></li>
     </ul>
 </nav>
 
@@ -32,6 +33,7 @@
 <div class="current_pw">
     <div class="join_pw_title">현재 비밀번호</div>
     <input type="password" name="password" placeholder="영어+숫자 6자 이상" required>
+    <button class="pw_button">확인</button>
 </div>
 
 
@@ -43,34 +45,33 @@
 
 <script>
     $(document).ready(function () {
-        $(".login_button").click(function () {
-            var nickname = $(".nickname").text();  // 화면에 표시된 닉네임 가져오기
+        $(".pw_button").click(function () {
             var currentPassword = $("input[name='password']").val();  // 현재 비밀번호 입력값 가져오기
-
+            var csrfToken = $("input[name='csrfmiddlewaretoken']").val();
             // AJAX 요청 보내기
             $.ajax({
                 type: "POST",
-                url: "/check_password_endpoint/",  // 비밀번호 확인을 처리하는 엔드포인트 URL로 변경해야 합니다.
+                url: "/user/mypageMain",  // 비밀번호 확인을 처리하는 엔드포인트 URL로 변경해야 합니다.
                 data: {
-                    nickname: nickname,
-                    password: currentPassword
+                    current_password: currentPassword,
+                    csrfmiddlewaretoken: csrfToken,
                 },
-                success: function (response) {
+                method: "POST",
+                success: function (data) {
                     // 서버로부터 응답을 받았을 때 실행되는 코드
-                    if (response.success) {
-                        // 닉네임과 비밀번호가 일치하는 경우 마이페이지로 이동
-                        window.location.href = "/mypage/";  // 실제 마이페이지 URL로 변경해야 합니다.
-                    } else {
-                        alert("닉네임 또는 비밀번호가 일치하지 않습니다.");
-                    }
+                    alert(data.message);
+                    location.href = "/user/mypage";  // 실제 마이페이지 URL로 변경해야 합니다.
                 },
-                error: function (error) {
-                    // 에러가 발생했을 때 실행되는 코드
-                    alert("오류가 발생했습니다.");
+
+                error: function (request, status, error) {
+                    let data = JSON.parse(request.responseText);
+                    console.log(data.message);
+                    alert(data.message);
                 }
             });
         });
     });
+
 </script>
 
 

@@ -21,7 +21,7 @@ class Main(APIView):
         current_date = datetime.now().date()
 
         # 저장된 start_date (예: content.start_date)와의 날짜 차이 계산
-        days_passed = (current_date - content.start_date).days
+        days_passed = (current_date - content.start_date).days + 1
         context = {
             'user': user,
             'content': content,

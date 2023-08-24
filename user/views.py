@@ -3,7 +3,6 @@ from django.contrib.auth import login, logout
 # Create your views here.
 from django.contrib.auth.hashers import make_password, check_password
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from rest_framework import status
 from rest_framework.response import Response
@@ -178,27 +177,26 @@ class MyPage2(APIView):
 
 
 class MyPageMain(APIView):
+
     def get(self, request):
         return render(request, "user/mypageMain.html")
 
     def post(self, request):
-        nickname = request.user.nickname  # 로그인한 사용자의 닉네임
-        current_password = request.data.get('password', None)  # 현재 비밀번호 입력값
+        current_password = request.data.get('current_password', None)
+        user = request.user
 
         if current_password is None:
-            return Response({"message": "현재 비밀번호를 입력해주세요."}, status=status.HTTP_400_BAD_REQUEST)
+            return Response(data=dict(message="현재 비밀번호를 입력해주세요."), status=status.HTTP_400_BAD_REQUEST)
 
-        user = User.objects.filter(nickname=nickname).first()
+        if current_password.strip() == "":
+            return Response(data=dict(message="현재 비밀번호를 입력해주세요."), status=status.HTTP_400_BAD_REQUEST)
 
-        if user is None:
-            return Response({"message": "사용자를 찾을 수 없습니다."}, status=status.HTTP_404_NOT_FOUND)
-
-        # 입력한 비밀번호와 저장된 비밀번호 일치 여부 확인
         if not check_password(current_password, user.password):
-            return Response({"message": "닉네임 또는 비밀번호가 일치하지 않습니다."}, status=status.HTTP_401_UNAUTHORIZED)
+            return Response(data=dict(message="비밀번호가 일치하지 않습니다."), status=status.HTTP_400_BAD_REQUEST)
 
-        # 닉네임과 비밀번호가 일치하는 경우 성공 응답 반환
-        return Response({"success": True}, status=status.HTTP_200_OK)
+        request.session['password'] = user.password
+
+        return Response(data=dict(message="비밀번호가 확인되었습니다."), status=status.HTTP_200_OK)
 
 
 class UnRegister(LoginRequiredMixin, APIView):
