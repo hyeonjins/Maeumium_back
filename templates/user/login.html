@@ -14,6 +14,7 @@
     <title>로그인</title>
 </head>
 <body>
+{% csrf_token %}
 <!-- nav바 -->
 <nav class="navbar">
     <div class="navbar__logo">
@@ -57,13 +58,14 @@
 
         let id = $("input[name='id']").val();
         let password = $("input[name='password']").val();
-
+        let csrfToken = $("input[name='csrfmiddlewaretoken']").val();
         // AJAX 통신
         $.ajax({
             url: '/user/login',  // 실제 백엔드의 URL로 변경해야 합니다.
             data: {
                 id: id,
                 password: password,
+                csrfmiddlewaretoken: csrfToken,
             },
             method: "POST",
             dataType: "json",
