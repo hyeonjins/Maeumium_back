@@ -3,6 +3,7 @@ from django.contrib.auth import login, logout
 # Create your views here.
 from django.contrib.auth.hashers import make_password, check_password
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from rest_framework import status
 from rest_framework.response import Response
@@ -103,18 +104,69 @@ class MyPage(APIView):
     def post(self, request):
         new_password = request.data.get('new_password', None)
         user = request.user
+        request.session['password'] = user.password
 
         if not user.is_authenticated:
-            return Response({"message": "로그인이 필요합니다."}, status=status.HTTP_401_UNAUTHORIZED)
+            return Response(data=dict(message="로그인이 필요합니다."), status=status.HTTP_401_UNAUTHORIZED)
 
         if new_password is None:
-            return Response({"message": "새로운 비밀번호를 입력해주세요."}, status=status.HTTP_400_BAD_REQUEST)
+            return Response(data=dict(message="새로운 비밀번호를 입력해주세요."), status=status.HTTP_400_BAD_REQUEST)
 
         # 비밀번호 변경 로직
         user.password = make_password(new_password)
         user.save()
+        # 비밀번호가 변경되었으므로 로그아웃 처리 후 로그인 페이지로 리다이렉션
+        logout(request)  # Django의 logout 함수를 사용하여 로그아웃 처리
 
-        return Response({"message": "비밀번호가 성공적으로 변경되었습니다."}, status=status.HTTP_200_OK)
+        return Response(data=dict(message="비밀번호가 성공적으로 변경되었습니다."), status=status.HTTP_200_OK)
+
+
+class ConnectPartner(APIView):
+    def post(self, request):
+        user = request.user
+        try:
+            content = Content.objects.get(user=user)
+        except Content.DoesNotExist:
+            content = None
+
+        if not user.is_authenticated:
+            return Response(data=dict(message="로그인이 필요합니다."), status=401)
+
+        new_start_date = request.data.get('new_start_date', None)
+        input_partner_nickname = request.data.get('input_partner_nickname', None)
+
+        if new_start_date is None or input_partner_nickname is None:
+            return Response(data=dict(message="날짜와 상대방 닉네임을 모두 입력하세요."), status=400)
+
+        # 세션에 partner_nickname과 start_date 저장
+        request.session['partner_nickname'] = content.partner_nickname
+        request.session['start_date'] = str(content.start_date)  # date 객체를 문자열로 변환
+
+        # DB에서 읽어온 partner_nickname와 입력한 닉네임 비교
+        if content.partner_nickname != input_partner_nickname:
+            return Response(data=dict(message="상대방의 닉네임이 일치하지 않습니다."), status=400)
+
+        content.start_date = new_start_date
+        content.save()
+
+        return Response(data=dict(message="연인 연결 시작일이 변경되었습니다."), status=200)
+
+
+class CoupleEnd(LoginRequiredMixin, APIView):
+    def get(self, request):
+        return render(request, "user/unregister.html")
+
+    def post(self, request):
+        # 사용자 정보 초기화 또는 삭제 작업 수행
+        user = request.user
+        try:
+            content = Content.objects.get(user=user)
+        except Content.DoesNotExist:
+            content = None
+
+        # 사용자의 데이터 삭제 또는 초기화 작업 수행
+        content.delete()  # 또는 원하는 로직에 맞게 사용자 데이터 삭제
+        return redirect('main2')  # main3에 해당하는 URL 패턴 이름으로 변경
 
 
 class MyPage2(APIView):

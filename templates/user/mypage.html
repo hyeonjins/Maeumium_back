@@ -14,6 +14,7 @@
 
 </head>
 <body>
+{% csrf_token %}
 <!-- nav바 -->
 <nav class="navbar">
     <div class="navbar__logo">
@@ -22,7 +23,7 @@
     <ul class="navbar__menu">
         <li class="writing"><a href="{% url 'write' %}">일기쓰기</a></li>
         <li class="analysis"><a href="{% url 'emotions' %}">감정분석</a></li>
-        <li class="mypage"><a href="{% url 'mypage' %}">마이페이지</a></li>
+        <li class="my_page"><a href="{% url 'mypage' %}">마이페이지</a></li>
     </ul>
 </nav>
 
@@ -51,7 +52,7 @@
     </div>
     <div class="coupleConnection_content">
         <input type="date" name="date" placeholder="상대방과의 연애 시작일을 선택하세요." required>
-        <button class="couple_button">제출하기</button>
+        <button class="couple_button">변경하기</button>
     </div>
     <div class="new_couple">
         <div class="new_pw_title">연인 연결 해지</div>
@@ -73,7 +74,7 @@
         $(".pw_button").click(function () {
             var newPassword = $("input[name='password']").val();
             var newPasswordConfirmation = $("input[name='password_cf']").val();
-
+            var csrfToken = $("input[name='csrfmiddlewaretoken']").val();
             // 비밀번호와 비밀번호 확인이 일치하는지 확인
             if (newPassword !== newPasswordConfirmation) {
                 alert("비밀번호가 일치하지 않습니다.");
@@ -84,17 +85,74 @@
             $.ajax({
                 url: "{% url 'mypage' %}",  // 실제 API 엔드포인트 URL로 변경해야 합니다.
                 data: {
-                    new_password: newPassword
+                    new_password: newPassword,
+                    csrfmiddlewaretoken: csrfToken,
+                },
+                method: "POST",
+                success: function (data) {
+                    // 서버로부터 응답을 받았을 때 실행되는 코드
+                    alert(data.message);
+                    location.href = "/user/login";
+                },
+                error: function (request, status, error) {
+                    let data = JSON.parse(request.responseText);
+                    console.log(data.message);
+                    alert(data.message);
+                }
+            });
+        });
+
+        // 연인 연결 시작일 변경 코드
+        $(".couple_button").click(function () {
+            var newStartdate = $("input[name='date']").val();
+            var partnerNickname = $("input[name='nickname']").val();
+            var csrfToken = $("input[name='csrfmiddlewaretoken']").val();
+
+            if (!newStartdate || !partnerNickname) {
+                alert("날짜와 상대방 닉네임을 모두 입력하세요.");
+                return;
+            }
+            // AJAX 요청 보내기
+            $.ajax({
+                url: "{% url 'connect_partner' %}",
+                data: {
+                    new_start_date: newStartdate,
+                    input_partner_nickname: partnerNickname,
+                    csrfmiddlewaretoken: csrfToken,
                 },
                 method: "POST",
                 dataType: "json",
-                success: function (response) {
-                    // 서버로부터 응답을 받았을 때 실행되는 코드
-                    alert("비밀번호를 성공적으로 변경했습니다");
+                success: function (data) {
+                    alert(data.message);
                 },
-                error: function (error) {
-                    // 에러가 발생했을 때 실행되는 코드
-                    alert("비밀번호 변경에 실패했습니다.");
+                error: function (request, status, error) {
+                    alert(request.responseJSON.message); // 오류 응답을 출력합니다.
+                }
+            });
+        });
+
+
+        $(".couple_end").click(function () {
+            // CSRF 토큰 얻기
+            var csrfToken = $("input[name='csrfmiddlewaretoken']").val();
+
+            // AJAX 요청 보내기
+            $.ajax({
+                method: "POST",
+                url: "{% url 'couple_end' %}",  // 탈퇴 처리를 담당하는 뷰의 URL로 변경
+                data: {
+                    csrfmiddlewaretoken: csrfToken  // CSRF 토큰 포함
+                },
+                success: function (data) {
+                    // 서버로부터 응답을 받았을 때 실행되는 코드
+                    console.log("성공");
+                    alert("해지 성공");
+                    window.location.href = "{% url 'main2' %}";
+                },
+                error: function (request, status, error) {
+                    let data = JSON.parse(request.responseText);
+                    console.log(data.message);
+                    alert(data.message);
                 }
             });
         });
