@@ -16,9 +16,9 @@
         <a><img src="{% static 'image/logo_white.png' %}" width="145px" height="62px"></a>
     </div>
     <ul class="navbar__menu">
-        <li class="writing"><a href="#">일기쓰기</a></li>
-        <li class="analysis"><a href="#">감정분석</a></li>
-        <li class="login"><a href="{% url 'login' %}">로그인/회원가입</a></li>
+        <li class="writing"><a href="{% url 'write' %}">일기쓰기</a></li>
+        <li class="analysis"><a href="{% url 'emotions' %}">감정분석</a></li>
+        <li class="mypage"><a href="{% url 'mypage' %}">마이페이지</a></li>
     </ul>
 </nav>
 
@@ -108,9 +108,7 @@
 
 <div class="calendar_bottom">
     {% if content.start_date %}
-        {% with days_passed=now|date:"j" %}
-            {{ days_passed }}일 째, 사랑 중♡
-        {% endwith %}
+        {{ days_passed }}일 째, 사랑 중♡
     {% endif %}
 </div>
 

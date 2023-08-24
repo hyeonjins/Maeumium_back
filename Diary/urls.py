@@ -24,8 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/', include('user.urls')),
     path('content/', include('content.urls')),
-    path('write/', Sub.as_view()),
-    path('emotions/', EmotionsView.as_view()),
+    path('write/', Sub.as_view(), name='write'),
+    path('emotions/', EmotionsView.as_view(), name='emotions'),
     # path('content/', include('content.urls')),
     # path('Diary/', include('Diary.urls')),
 

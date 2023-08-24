@@ -1,12 +1,13 @@
 from datetime import datetime
 
 from django.shortcuts import render
+from django.utils.timezone import now
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from content.models import Content
 from user.models import User
-
+from datetime import datetime
 
 class Main(APIView):
     def get(self, request):
@@ -15,12 +16,17 @@ class Main(APIView):
             content = Content.objects.get(user=user)
         except Content.DoesNotExist:
             content = None
-        now = datetime.now()
 
+        # 현재 날짜
+        current_date = datetime.now().date()
+
+        # 저장된 start_date (예: content.start_date)와의 날짜 차이 계산
+        days_passed = (current_date - content.start_date).days
         context = {
             'user': user,
             'content': content,
             'now': now,
+            'days_passed': days_passed,
         }
 
         return render(request, "content/main.html", context)
