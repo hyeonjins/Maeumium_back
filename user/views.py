@@ -1,8 +1,9 @@
 # from Diary.settings import MEDIA_ROOT
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import login, logout
 # Create your views here.
 from django.contrib.auth.hashers import make_password, check_password
-from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import render, redirect
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -68,7 +69,7 @@ class Login(APIView):
             return Response(status=500, data=dict(message='비밀번호를 입력해주세요'))
 
         user = User.objects.filter(id=id).first()
-        #user = authenticate(request, username=id, password=password)
+        # user = authenticate(request, username=id, password=password)
 
         if user is None:
             return Response(status=500, data=dict(message='입력정보가 잘못되었습니다.'))
@@ -138,9 +139,19 @@ class MyPageMain(APIView):
         return Response({"success": True}, status=status.HTTP_200_OK)
 
 
-class UnRegister(APIView):
+class UnRegister(LoginRequiredMixin, APIView):
     def get(self, request):
         return render(request, "user/unregister.html")
 
     def post(self, request):
-        return render(request, "user/unregister.html")
+        # 사용자 정보 초기화 또는 삭제 작업 수행
+        user = request.user
+
+        # 사용자의 데이터 삭제 또는 초기화 작업 수행
+        user.delete()  # 또는 원하는 로직에 맞게 사용자 데이터 삭제
+
+        # 로그아웃 처리
+        logout(request)
+
+        # main3 페이지로 리다이렉트
+        return redirect('main3')  # main3에 해당하는 URL 패턴 이름으로 변경

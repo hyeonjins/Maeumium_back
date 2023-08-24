@@ -9,29 +9,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마이페이지_탈퇴</title>
 
-     <!-- jquery -->
+    <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 </head>
 <body>
+{% csrf_token %}
 <!-- nav바 -->
 <nav class="navbar">
     <div class="navbar__logo">
         <a><img src="{% static 'image/logo_white.png' %}" width="145px" height="62px"></a>
     </div>
     <ul class="navbar__menu">
-        <li class="writing"><a href="#">일기쓰기</a></li>
-        <li class="analysis"><a href="#">감정분석</a></li>
-        <li class="login"><a href="#">로그인/회원가입</a></li>
+        <li class="writing"><a href="{% url 'write' %}">일기쓰기</a></li>
+        <li class="analysis"><a href="{% url 'emotions' %}">감정분석</a></li>
+        <li class="mypage"><a href="{% url 'mypage' %}">마이페이지</a></li>
     </ul>
 </nav>
 
 <div class="mypage">마이페이지</div>
-<div class="nickname">(닉네임)님</div>
+<div class="nickname">{{ user.nickname }}님</div>
 
 <div class="notice">회원탈퇴를 진행하게 되시면 지금까지 작성했던 일기 데이터는 모두 사라집니다. <br>정말로 탈퇴하시겠습니까?</div>
 <div class="buttons">
-    <a href="../mypage/mypage.html">
+    <a href="{% url 'mypage' %}">
         <button class="no">취소</button>
     </a>
     <button class="ok">확인</button>
@@ -42,5 +43,35 @@
 <footer>
     ⓒ 마음이음. 2023 All rights reserved.
 </footer>
+
+
+<script>
+    $(document).ready(function () {
+        $(".ok").click(function () {
+            // CSRF 토큰 얻기
+            var csrfToken = $("input[name='csrfmiddlewaretoken']").val();
+
+            // AJAX 요청 보내기
+            $.ajax({
+                method: "POST",
+                url: "{% url 'unregister' %}",  // 탈퇴 처리를 담당하는 뷰의 URL로 변경
+                data: {
+                    csrfmiddlewaretoken: csrfToken  // CSRF 토큰 포함
+                },
+                success: function (data) {
+                    // 서버로부터 응답을 받았을 때 실행되는 코드
+                    console.log("성공");
+                    alert("탈퇴 성공");
+                    window.location.href = "{% url 'main3' %}";
+                },
+                error: function (request, status, error) {
+                    let data = JSON.parse(request.responseText);
+                    console.log(data.message);
+                    alert(data.message);
+                }
+            });
+        });
+    });
+</script>
 </body>
 </html>
