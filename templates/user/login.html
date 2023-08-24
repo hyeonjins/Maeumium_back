@@ -72,8 +72,11 @@
             success: function (data) {
                 console.log("성공");
                 alert("로그인 성공");
-                location.href = "/content/main2";
-
+                if (data.redirect_to_main) {
+                    location.href = "/content/main";  // main 페이지로 이동
+                } else {
+                    location.href = "/content/main2";  // main2 페이지로 이동
+                }
             },
             error: function (request, status, error) {
                 let data = JSON.parse(request.responseText);

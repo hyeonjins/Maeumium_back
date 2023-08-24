@@ -8,6 +8,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from content.models import Content
 from .models import User
 
 
@@ -61,12 +62,16 @@ class Login(APIView):
         # TODO 로그인
         id = request.data.get('id', None)
         password = request.data.get('password', None)
+        user = request.user
+        try:
+            content = Content.objects.get(user=user)
+        except Content.DoesNotExist:
+            content = None
 
-        if id is None:
-            return Response(status=500, data=dict(message='아이디를 입력해주세요'))
-
-        if password is None:
-            return Response(status=500, data=dict(message='비밀번호를 입력해주세요'))
+        context = {
+            'user': user,
+            'content': content,
+        }
 
         user = User.objects.filter(id=id).first()
         # user = authenticate(request, username=id, password=password)
@@ -81,8 +86,13 @@ class Login(APIView):
         request.session['id'] = user.id
 
         login(request, user)
+        # Check if user and partner's nickname both exist in content
+        content_exists = Content.objects.filter(user=user).exists()
 
-        return Response(status=200, data=dict(message='로그인에 성공했습니다.'))
+        if content_exists:
+            return Response(status=200, data=dict(message='로그인에 성공했습니다.', redirect_to_main=True))
+        else:
+            return Response(status=200, data=dict(message='로그인에 성공했습니다.', redirect_to_main=False))
 
 
 class MyPage(APIView):

@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="657d1c9b-d24f-410f-885a-f3e12b070115" name="Changes" comment="navbar 링크변경">
+    <list default="true" id="657d1c9b-d24f-410f-885a-f3e12b070115" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Diary/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Diary/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/content/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/content/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/content/main2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/content/main2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/content/main3.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/content/main3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/join.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/join.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/user/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/mypage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/mypage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +154,7 @@
       <workItem from="1691822586549" duration="39210000" />
       <workItem from="1692197303961" duration="26889000" />
       <workItem from="1692766519498" duration="4324000" />
-      <workItem from="1692774990161" duration="32881000" />
+      <workItem from="1692774990161" duration="34771000" />
     </task>
     <task id="LOCAL-00001" summary="체크박스 제외 로그인/회원가입 구현">
       <option name="closed" value="true" />
@@ -377,7 +372,23 @@
       <option name="project" value="LOCAL" />
       <updated>1692852460257</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="csrf 토큰추가">
+      <option name="closed" value="true" />
+      <created>1692854215661</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1692854215661</updated>
+    </task>
+    <task id="LOCAL-00029" summary="navbar 링크 수정">
+      <option name="closed" value="true" />
+      <created>1692854229055</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1692854229055</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -409,6 +420,8 @@
     <MESSAGE value="메인페이지" />
     <MESSAGE value="Main, Main2 구현" />
     <MESSAGE value="Unregister 구현" />
-    <option name="LAST_COMMIT_MESSAGE" value="Unregister 구현" />
+    <MESSAGE value="csrf 토큰추가" />
+    <MESSAGE value="navbar 링크 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="navbar 링크 수정" />
   </component>
 </project>
