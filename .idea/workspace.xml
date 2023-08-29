@@ -6,15 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="657d1c9b-d24f-410f-885a-f3e12b070115" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/content/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/mypageMain.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/mypageMain.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/content/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Diary/write.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Diary/write.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/content/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/content/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/content/main2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/content/main2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/user/mypage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/mypage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/mypage2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/mypage2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/user/mypageMain.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/mypageMain.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/unregister.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/unregister.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,11 +98,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\tkrhk\PycharmProjects\Diary\static\js" />
       <recent name="C:\Users\tkrhk\PycharmProjects\Diary\templates\content" />
       <recent name="C:\Users\tkrhk\PycharmProjects\Diary\static\image" />
       <recent name="C:\Users\tkrhk\PycharmProjects\Diary\static\css" />
       <recent name="C:\Users\tkrhk\PycharmProjects\Diary\templates\Diary" />
-      <recent name="C:\Users\tkrhk\PycharmProjects\Diary\static" />
     </key>
   </component>
   <component name="RunManager">
@@ -161,7 +158,7 @@
       <workItem from="1691822586549" duration="39210000" />
       <workItem from="1692197303961" duration="26889000" />
       <workItem from="1692766519498" duration="4324000" />
-      <workItem from="1692774990161" duration="49642000" />
+      <workItem from="1692774990161" duration="53109000" />
     </task>
     <task id="LOCAL-00001" summary="체크박스 제외 로그인/회원가입 구현">
       <option name="closed" value="true" />
@@ -411,7 +408,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692868195254</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="마이페이지 확인버튼 추가">
+      <option name="closed" value="true" />
+      <created>1692897561121</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1692897561121</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -447,6 +452,7 @@
     <MESSAGE value="navbar 링크 수정" />
     <MESSAGE value="로그인 페이지 수정" />
     <MESSAGE value="마이페이지 비밀번호/시작날짜 변경 및 연결 해지 기능" />
-    <option name="LAST_COMMIT_MESSAGE" value="마이페이지 비밀번호/시작날짜 변경 및 연결 해지 기능" />
+    <MESSAGE value="마이페이지 확인버튼 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="마이페이지 확인버튼 추가" />
   </component>
 </project>
