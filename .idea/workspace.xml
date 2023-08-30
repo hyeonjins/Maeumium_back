@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="657d1c9b-d24f-410f-885a-f3e12b070115" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/content/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/content/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/emotions.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/emotions.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Diary/emotions.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Diary/emotions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/content/main3.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/content/main3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/join.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/join.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,36 +71,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/tkrhk/PycharmProjects/Jinstram",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/tkrhk/PycharmProjects/Jinstram&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "ChangesTree.GroupingKeys": [
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
     ],
-    "DatabaseDriversLRU": [
-      "sqlite"
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\tkrhk\PycharmProjects\Diary\static\css" />
+      <recent name="C:\Users\tkrhk\PycharmProjects\Diary\templates\Diary" />
       <recent name="C:\Users\tkrhk\PycharmProjects\Diary\static\js" />
       <recent name="C:\Users\tkrhk\PycharmProjects\Diary\templates\content" />
       <recent name="C:\Users\tkrhk\PycharmProjects\Diary\static\image" />
-      <recent name="C:\Users\tkrhk\PycharmProjects\Diary\static\css" />
-      <recent name="C:\Users\tkrhk\PycharmProjects\Diary\templates\Diary" />
     </key>
   </component>
   <component name="RunManager">
@@ -156,6 +157,7 @@
       <workItem from="1692197303961" duration="26889000" />
       <workItem from="1692766519498" duration="4324000" />
       <workItem from="1692774990161" duration="57451000" />
+      <workItem from="1693378314367" duration="5469000" />
     </task>
     <task id="LOCAL-00001" summary="체크박스 제외 로그인/회원가입 구현">
       <option name="closed" value="true" />
