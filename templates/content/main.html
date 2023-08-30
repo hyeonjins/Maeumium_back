@@ -68,7 +68,7 @@
 </footer>
 
 </body>
-</html>
+
 
 <script type="text/javascript">
     let date = new Date();
@@ -124,13 +124,14 @@
         const dates = prevDates.concat(thisDates, nextDates);
         const firstDateIndex = dates.indexOf(1);
         const lastDateIndex = dates.lastIndexOf(TLDate);
-        dates.forEach((date, i) => {
+        thisDates.forEach((date, i) => {
             const condition =
                 i >= firstDateIndex && i < lastDateIndex + 1 ? "this" : "other";
-            dates[
+            thisDates[
                 i
                 ] = `<div class="date ${condition}" style="width: calc(100% / 7); display: inline-block; padding: 70px;">${date}</div>`;
         });
+
 
         document.querySelector(".dates").innerHTML = dates.join("");
 
@@ -168,3 +169,4 @@
     };
 
 </script>
+</html>
