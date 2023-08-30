@@ -44,7 +44,25 @@
         <!-- 소제목2 -->
         <div class="content-section">
             <h2 class="diary_title">김마음님의 마음 비율은</h2>
-            <a href="#"><img src="{% static 'image/..png' %}" width="435px" height="336.377px"></a>
+            <div class="bar-chart">
+                <div class="bar">
+                    <span class="g_term">긍정</span>
+                    <div class="bar-fill bar-positive" data-value="23"></div> <!-- bar-positive 클래스 추가 -->
+                    <span class="bar-label">23%</span>
+                </div>
+                <div class="bar">
+                    <span class="g_term">중립</span>
+                    <div class="bar-fill bar-neutral" data-value="27"></div> <!-- bar-neutral 클래스 추가 -->
+                    <span class="bar-label">27%</span>
+                </div>
+                <div class="bar">
+                    <span class="g_term">부정</span>
+                    <div class="bar-fill bar-negative" data-value="50"></div> <!-- bar-negative 클래스 추가 -->
+                    <span class="bar-label">50%</span>
+                </div>
+            </div>
+
+
         </div>
 
         <!-- 소제목3 -->

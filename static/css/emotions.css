@@ -13,8 +13,8 @@ body {
 }
 
 li {
-	list-style-type: none;
-	list-style: none;
+    list-style-type: none;
+    list-style: none;
     padding-right: 40px;
 }
 
@@ -62,7 +62,6 @@ footer {
 }
 
 
-
 .root {
     font-family: 'GangwonEduAll';
 }
@@ -74,7 +73,7 @@ footer {
 .diary {
     width: 1089px;
     height: 2023px;
-    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2);
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     padding: 0px 20px 0px 20px;
     font-family: 'GangwonEduAll';
@@ -90,12 +89,12 @@ footer {
 
 .content-section {
     margin-bottom: 80px;
-    padding:5px 20px 0px 20px;
+    padding: 5px 20px 0px 20px;
 }
 
 .main-title {
     font-size: 20px;
-    padding:5px 200px 0px 200px; /* 감정분석 글씨 조정 필요 */
+    padding: 5px 200px 0px 200px; /* 감정분석 글씨 조정 필요 */
 }
 
 
@@ -112,11 +111,79 @@ footer {
     font-family: 'GangwonEduAll';
     color: #89029C;
     font-size: 25px;
-    
+
 }
 
-.content-section h3{
+.content-section h3 {
     padding-top: 20px;
     font-size: 20px;
 
+}
+
+
+.bar-chart {
+    width: 100%;
+}
+
+.bar {
+    position: relative; /* label의 절대 위치를 위해 필요함 */
+    height: 30px; /* 막대의 높이 */
+    margin-bottom: 10px; /* 막대 사이의 간격 */
+}
+
+.bar-fill {
+    height: 100%; /* 막대 전체 높이 */
+    background-color: #000000; /* 막대의 색상 */
+}
+
+
+/* data-value 속성에 따라 너비 설정 */
+.bar-fill[data-value="23"] {
+    width: 23%;
+}
+
+.bar-fill[data-value="27"] {
+    width: 27%;
+}
+
+.bar-fill[data-value="50"] {
+    width: 50%;
+}
+
+.bar-fill {
+    margin-left: 30px;
+}
+
+.bar-positive {
+    background-color: #ffb02e;
+}
+
+.bar-neutral {
+    background-color: #503A4A;
+}
+
+.bar-negative {
+    background-color: #F70A8D;
+}
+
+
+.bar-label {
+    position: absolute;
+    right: 10px; /* 오른쪽 끝에서 약간 떨어져서 */
+    top: 50%;
+    transform: translateY(-50%); /* 수직 중앙 정렬 */
+    font-size: 15px;
+    font-weight: bold;
+    margin-right: 30px;
+}
+
+/* 기존 CSS는 그대로 유지되며 아래 CSS를 추가/변경합니다. */
+
+.bar {
+    display: flex; /* 항목들을 가로로 나열 */
+    align-items: center; /* 항목들을 수직 중앙에 정렬 */
+}
+
+.bar-name {
+    font-size: 15px;
 }
