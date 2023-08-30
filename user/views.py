@@ -24,6 +24,11 @@ class Join(APIView):
         password = request.data.get('password')
         date = request.data.get('date')
 
+        # Check if password meets the requirements
+        if len(password) < 6 or not any(char.isdigit() for char in password) or not any(
+                char.isalpha() for char in password):
+            return Response(status=400, data=dict(message="비밀번호는 영어와 숫자 조합으로 6자 이상이어야 합니다."))
+
         user = User.objects.create(
             name=name,
             email=email,
@@ -110,6 +115,10 @@ class MyPage(APIView):
 
         if new_password is None:
             return Response(data=dict(message="새로운 비밀번호를 입력해주세요."), status=status.HTTP_400_BAD_REQUEST)
+
+        if len(new_password) < 6 or not any(char.isdigit() for char in new_password) or not any(
+                char.isalpha() for char in new_password):
+            return Response(status=400, data=dict(message="비밀번호는 영어와 숫자 조합으로 6자 이상이어야 합니다."))
 
         # 비밀번호 변경 로직
         user.password = make_password(new_password)
