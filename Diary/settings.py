@@ -71,6 +71,9 @@ TEMPLATES = [
     },
 ]
 
+MEDIA_URL = '/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 WSGI_APPLICATION = 'Diary.wsgi.application'
 
 # Database
@@ -136,3 +139,4 @@ AUTH_USER_MODEL = 'user.User'
 CSRF_COOKIE_SECURE = False
 
 #LOGIN_REDIRECT_URL = 'main'  # 로그인 성공 후 리다이렉트될 URL 설정
+

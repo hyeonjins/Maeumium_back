@@ -1,19 +1,10 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from rest_framework.views import APIView
+from content.models import Diary
+from content.forms import DiaryForm
 
 
-class Sub(APIView):
-    def get(self, request):
-        return render(request, "Diary/write.html")
-
-    def post(self, request):
-        return render(request, 'Diary/write.html')
-
-
-class EmotionsView(APIView):
-    def get(self, request):
-        return render(request, "Diary/emotions.html")
 
 """
 class CustomLoginRequiredMixin(LoginRequiredMixin):

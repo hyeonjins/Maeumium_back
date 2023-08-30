@@ -1,13 +1,16 @@
 from datetime import datetime
 
+from django.core.files.storage import FileSystemStorage
+from django.http import JsonResponse
 from django.shortcuts import render
 from django.utils.timezone import now
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from content.models import Content
+from content.forms import DiaryForm
+from content.models import Content, Diary
 from user.models import User
-from datetime import datetime
+
 
 class Main(APIView):
     def get(self, request):
@@ -79,18 +82,64 @@ class Main3(APIView):
         return render(request, 'content/main3.html')
 
 
+class Write(APIView):
+    def get(self, request):
+        form = DiaryForm()
+        context = {'form': form}
+        return render(request, 'content/write.html', context)
+
+    def post(self, request):
+        form = DiaryForm(request.POST, request.FILES)
+        if form.is_valid():
+            diary = form.save(commit=False)
+            diary.user = request.user
+
+            if 'thumbnail' in request.FILES:
+                uploaded_thumbnail = request.FILES['thumbnail']
+                fs = FileSystemStorage()
+                uploaded_thumbnail_url = fs.save('thumbnails/' + uploaded_thumbnail.name, uploaded_thumbnail)
+                diary.thumbnail = uploaded_thumbnail_url  # 저장할 때 전체 경로가 아닌 파일명만 저장하도록 변경
+
+            diary.save()
+            return JsonResponse({"success": True})
+        else:
+            return JsonResponse({"success": False})
+
+
+class Emotions(APIView):
+    def get(self, request):
+        return render(request, "content/emotions.html")
+
+
 # Create your views here.
 class MyDiary(APIView):
     def get(self, request):
-        return render(request, "content/mydiary.html")
-
-    def post(self, request):
-        return render(request, "content/mydiary.html")
+        diaries = Diary.objects.all()  # Get all diary objects from the database
+        context = {'diaries': diaries}
+        return render(request, "content/mydiary.html", context)
 
 
 class CoupleDiary(APIView):
-    def get(self, request):
-        return render(request, "content/couplediary.html")
 
-    def post(self, request):
-        return render(request, "content/couplediary.html")
+    def get(self, request):
+        user = request.user  # 현재 로그인한 사용자
+
+        # 현재 사용자의 연인의 닉네임 가져오기
+        try:
+            content = Content.objects.get(user=user)
+            lover_nickname = content.partner_nickname
+        except Content.DoesNotExist:
+            lover_nickname = None
+
+        # 연인의 다이어리 목록 가져오기
+        lover_diaries = Diary.objects.filter(user__nickname=lover_nickname)
+
+        context = {
+            'lover_diaries': lover_diaries
+        }
+
+        return render(request, "content/couplediary.html", context)
+
+
+def post(self, request):
+    return render(request, "content/couplediary.html")

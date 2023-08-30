@@ -5,11 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="657d1c9b-d24f-410f-885a-f3e12b070115" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/static/css/emotions.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/emotions.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Diary/emotions.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Diary/emotions.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/content/main3.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/content/main3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/join.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/join.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Diary/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Diary/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Diary/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Diary/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Diary/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Diary/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/content/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/content/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/content/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Diary/emotions.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/content/emotions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Diary/write.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/content/write.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/content/couplediary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/content/mydiary.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/models.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,10 +103,10 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\tkrhk\PycharmProjects\Diary\static\css" />
-      <recent name="C:\Users\tkrhk\PycharmProjects\Diary\templates\Diary" />
-      <recent name="C:\Users\tkrhk\PycharmProjects\Diary\static\js" />
       <recent name="C:\Users\tkrhk\PycharmProjects\Diary\templates\content" />
+      <recent name="C:\Users\tkrhk\PycharmProjects\Diary\templates\Diary" />
+      <recent name="C:\Users\tkrhk\PycharmProjects\Diary\static\css" />
+      <recent name="C:\Users\tkrhk\PycharmProjects\Diary\static\js" />
       <recent name="C:\Users\tkrhk\PycharmProjects\Diary\static\image" />
     </key>
   </component>
@@ -157,7 +164,7 @@
       <workItem from="1692197303961" duration="26889000" />
       <workItem from="1692766519498" duration="4324000" />
       <workItem from="1692774990161" duration="57451000" />
-      <workItem from="1693378314367" duration="5469000" />
+      <workItem from="1693378314367" duration="16658000" />
     </task>
     <task id="LOCAL-00001" summary="체크박스 제외 로그인/회원가입 구현">
       <option name="closed" value="true" />
@@ -423,7 +430,23 @@
       <option name="project" value="LOCAL" />
       <updated>1693326204952</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="감정분석 프론트 수정">
+      <option name="closed" value="true" />
+      <created>1693412740547</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1693412740547</updated>
+    </task>
+    <task id="LOCAL-00035" summary="a 태그 수정">
+      <option name="closed" value="true" />
+      <created>1693412754131</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1693412754131</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -461,6 +484,8 @@
     <MESSAGE value="마이페이지 비밀번호/시작날짜 변경 및 연결 해지 기능" />
     <MESSAGE value="마이페이지 확인버튼 추가" />
     <MESSAGE value="main 캘린더 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="main 캘린더 수정" />
+    <MESSAGE value="감정분석 프론트 수정" />
+    <MESSAGE value="a 태그 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="a 태그 수정" />
   </component>
 </project>

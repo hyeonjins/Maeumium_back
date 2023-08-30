@@ -5,6 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <link rel="stylesheet" href="{% static 'css/global.css' %}">
     <link rel="stylesheet" href="{% static 'css/write.css' %}">
@@ -16,7 +18,7 @@
 <nav class="navbar">
     <div class="navbar__logo">
         <a href="{% url 'main' %}"><img src="{% static 'image/logo_white.png' %}" width="145px"
-                                                         height="62px"></a>
+                                        height="62px"></a>
     </div>
     <ul class="navbar__menu">
         <li class="writing"><a href="#">일기쓰기</a></li>
@@ -89,99 +91,107 @@
 </div>
 </body>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const submitButton = document.querySelector(".submit_button");
-        const emotionImages = document.querySelectorAll(".emotion_image");
-        const privacyButtons = document.querySelectorAll(".privacy_button");
-        const thumbnailUploadButton = document.querySelector(".thumbnail_upload_button");
-        const thumbnailUploadInput = document.getElementById("thumbnail_upload");
 
-        thumbnailUploadButton.addEventListener("click", function () {
+<script>
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== "") {
+            const cookies = document.cookie.split(";");
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === name + "=") {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    $(document).ready(function () {
+        const submitButton = $(".submit_button");
+        const emotionImages = $(".emotion_image");
+        const privacyButtons = $(".privacy_button");
+        const thumbnailUploadButton = $(".thumbnail_upload_button");
+        const thumbnailUploadInput = $("#thumbnail_upload");
+
+        thumbnailUploadButton.on("click", function () {
             thumbnailUploadInput.click();
         });
 
-        thumbnailUploadInput.addEventListener("change", function () {
-            const selectedFile = thumbnailUploadInput.files[0];
+        thumbnailUploadInput.on("change", function () {
+            const selectedFile = thumbnailUploadInput[0].files[0];
             if (selectedFile) {
                 alert("파일 업로드 완료: " + selectedFile.name);
             }
         });
 
-        submitButton.addEventListener("click", function () {
-            let isValid = true;
+        submitButton.on("click", function () {
+            const titleInput = $(".write_title");
+            const contentInput = $(".write_content");
+            const selectedEmotion = $(".emotion_image.selected").find(".emotion_text").text();
+            const selectedPrivacy = $(".privacy_button.selected").text();
 
-            const titleInput = document.querySelector(".write_title");
-            const contentInput = document.querySelector(".write_content");
-
-            if (titleInput.value.trim() === "") {
+            if (titleInput.val().trim() === "") {
                 alert("제목은 필수로 입력해야 합니다!");
-                isValid = false;
+                return;
             }
-
-            let selectedEmotion = false;
-            emotionImages.forEach(emotionImage => {
-                if (emotionImage.classList.contains("selected")) {
-                    selectedEmotion = true;
-                }
-            });
 
             if (!selectedEmotion) {
                 alert("오늘의 감정 선택은 필수입니다!");
-                isValid = false;
+                return;
             }
-
-            let selectedPrivacy = false;
-            privacyButtons.forEach(privacyButton => {
-                if (privacyButton.classList.contains("selected")) {
-                    selectedPrivacy = true;
-                }
-            });
 
             if (!selectedPrivacy) {
                 alert("공개/비밀 여부 선택은 필수입니다!");
-                isValid = false;
+                return;
             }
 
-            if (contentInput.value.trim() === "") {
+            if (contentInput.val().trim() === "") {
                 alert("내용 입력은 필수입니다!");
-                isValid = false;
+                return;
             }
 
-            if (isValid) {
-                alert("작성 완료되었습니다!");
-                // 메인 페이지로 이동하는 코드 추가
-                window.location.href = "URL_메인_페이지";
-            }
-        });
+            const formData = new FormData();
+            formData.append("title", titleInput.val().trim());
+            formData.append("content", contentInput.val().trim());
+            formData.append("emotion", selectedEmotion);
+            formData.append("privacy", selectedPrivacy);
 
-        emotionImages.forEach(emotionImage => {
-            emotionImage.addEventListener("click", function () {
-                if (this.classList.contains("selected")) {
-                    this.classList.remove("selected");
-                } else {
-                    emotionImages.forEach(emotion => {
-                        emotion.classList.remove("selected");
-                    });
-                    this.classList.add("selected");
+            const selectedFile = thumbnailUploadInput[0].files[0];
+            if (selectedFile) {
+                formData.append("thumbnail", selectedFile);
+            }
+
+            // 추가로 필요한 데이터가 있다면 formData에 추가하여 전송
+
+            $.ajax({
+                url: "{% url 'write' %}",
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                headers: {"X-CSRFToken": getCookie("csrftoken")},
+                success: function (response) {
+                    alert("작성 완료되었습니다!");
+                    window.location.href = "{% url 'mydiary' %}"; // 메인 페이지로 이동
+                },
+                error: function (error) {
+                    alert("작성 실패했습니다. 다시 시도해주세요.");
                 }
             });
         });
 
-        privacyButtons.forEach(privacyButton => {
-            privacyButton.addEventListener("click", function () {
-                if (this.classList.contains("selected")) {
-                    this.classList.remove("selected");
-                } else {
-                    privacyButtons.forEach(privacy => {
-                        privacy.classList.remove("selected");
-                    });
-                    this.classList.add("selected");
-                }
-            });
+        emotionImages.on("click", function () {
+            emotionImages.removeClass("selected");
+            $(this).addClass("selected");
+        });
+
+        privacyButtons.on("click", function () {
+            privacyButtons.removeClass("selected");
+            $(this).addClass("selected");
         });
     });
 </script>
-
 
 </html>
