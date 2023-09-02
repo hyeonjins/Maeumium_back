@@ -2,7 +2,7 @@ from datetime import datetime
 
 from django.core.files.storage import FileSystemStorage
 from django.http import JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.utils.timezone import now
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -114,32 +114,36 @@ class Emotions(APIView):
 # Create your views here.
 class MyDiary(APIView):
     def get(self, request):
-        diaries = Diary.objects.all()  # Get all diary objects from the database
+        diaries = Diary.objects.filter(user=request.user)
         context = {'diaries': diaries}
         return render(request, "content/mydiary.html", context)
 
 
 class CoupleDiary(APIView):
-
     def get(self, request):
-        user = request.user  # 현재 로그인한 사용자
+        if request.user.is_authenticated:  # 로그인한 사용자인지 확인
+            user = request.user  # 현재 로그인한 사용자
 
-        # 현재 사용자의 연인의 닉네임 가져오기
-        try:
-            content = Content.objects.get(user=user)
-            lover_nickname = content.partner_nickname
-        except Content.DoesNotExist:
-            lover_nickname = None
+            # 사용자와 연관된 Content 객체 가져오기
+            try:
+                content = Content.objects.get(user=user)
+                lover_nickname = content.partner_nickname
 
-        # 연인의 다이어리 목록 가져오기
-        lover_diaries = Diary.objects.filter(user__nickname=lover_nickname)
+                # 연인의 다이어리 목록 가져오기
+                if lover_nickname:
+                    lover_diaries = Diary.objects.filter(user__nickname=lover_nickname)
+                else:
+                    lover_diaries = []
 
-        context = {
-            'lover_diaries': lover_diaries
-        }
+                context = {
+                    'lover_diaries': lover_diaries
+                }
 
-        return render(request, "content/couplediary.html", context)
-
-
-def post(self, request):
-    return render(request, "content/couplediary.html")
+                return render(request, "content/couplediary.html", context)
+            except Content.DoesNotExist:
+                # Content 객체가 없는 경우에 대한 처리
+                # 사용자에게 메시지를 보여주거나 다른 처리를 추가하세요.
+                pass
+        else:
+            # 로그인하지 않은 사용자에게 메시지를 보여주거나 로그인 페이지로 리다이렉션하세요.
+            return redirect('login')  # login은 실제 로그인 URL에 해당하는 부분으로 변경해야 합니다.

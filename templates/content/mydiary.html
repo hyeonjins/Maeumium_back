@@ -13,18 +13,18 @@
 <!-- nav바 -->
 <nav class="navbar">
     <div class="navbar__logo">
-        <a href="#"><img src="{% static 'image/logo_white.png' %}" width="145px" height="62px"></a>
+        <a href="{% url 'main' %}"><img src="{% static 'image/logo_white.png' %}" width="145px" height="62px"></a>
     </div>
     <ul class="navbar__menu">
-        <li class="writing"><a href="#">일기쓰기</a></li>
-        <li class="analysis"><a href="#">감정분석</a></li>
-        <li class="login"><a href="#">로그인/회원가입</a></li>
+        <li class="writing"><a href="{% url 'write' %}">일기쓰기</a></li>
+        <li class="analysis"><a href="{% url 'emotions' %}">감정분석</a></li>
+        <li class="my_page"><a href="{% url 'mypageMain' %}">마이페이지</a></li>
     </ul>
 </nav>
 
 <div class="root">
     <a href="{% url 'main' %}"><img class="back" src="{% static 'image/backward.png' %}" width="18px"
-                                         height="32px"></a>
+                                    height="32px"></a>
 
     <div class="diary">
         {% for diary in diaries %}
