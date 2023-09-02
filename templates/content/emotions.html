@@ -35,16 +35,19 @@
     <div class="diary">
         <!-- 소제목1 -->
         <div class="content-section">
-            <h2 class="diary_title">다이어리 요약</h2>
-            <h3 class="inner_title">제목: 감정이랑 싸운날</h3>
-            <p class="diary_content">감정이랑 싸웠다. 요즘 자주 싸우는 것 같다. 권태기일까...? 마음을 정리하는 시간이 필요하다. 별로 기분이 나빴던 것 같지 않았는데 요즘 왜
-                이렇게 감정이 쉽게 왔다갔다 할까? 감정이가 싫지는 않다. 그런데 왜 순간적으로 내 감정을 조절하기가 어려울까? 감정이는 어떤 생각을 하고 있을까? 그래도 내일은 내가 미안하다고
-                해야겠다. 좋기만 하고 싶은데 생각보다 쉽지 않은 것 같다.</p>
+            {% for diary in diaries %}
+                <h2 class="diary_title">다이어리 요약</h2>
+                <h3 class="inner_title">제목: {{ diary.title }}</h3>
+                <p class="diary_content">감정이랑 싸웠다. 요즘 자주 싸우는 것 같다. 권태기일까...? 마음을 정리하는 시간이 필요하다. 별로 기분이 나빴던 것 같지 않았는데 요즘
+                    왜
+                    이렇게 감정이 쉽게 왔다갔다 할까? 감정이가 싫지는 않다. 그런데 왜 순간적으로 내 감정을 조절하기가 어려울까? 감정이는 어떤 생각을 하고 있을까? 그래도 내일은 내가 미안하다고
+                    해야겠다. 좋기만 하고 싶은데 생각보다 쉽지 않은 것 같다.</p>
+            {% endfor %}
         </div>
 
         <!-- 소제목2 -->
         <div class="content-section">
-            <h2 class="diary_title">김마음님의 마음 비율은</h2>
+            <h2 class="diary_title">{{ user.nickname }}님의 마음 비율은</h2>
             <div class="bar-chart">
                 <div class="bar">
                     <span class="g_term">긍정</span>
@@ -69,26 +72,26 @@
         <!-- 소제목3 -->
         <div class="content-section">
             <h2 class="diary_title">감정 분석리포트</h2>
-            <p class="diary_content">김마음님의 마음 상태는 ‘우울’ 같아요.
+            <p class="diary_content">{{ user.nickname }}님의 마음 상태는 ‘우울’ 같아요.
                 <br>
-                <br>김마음님은 주로 ‘감정님과 함께할 때' 우울하셨네요.
+                <br>{{ user.nickname }}님은 주로 ‘감정님과 함께할 때' 우울하셨네요.
                 <br>요즘 힘든 일이 많이 있으셨나요?
                 <br>
                 <br>남자친구의 갈등, 시간이 필요함 등이
-                <br>김마음님의 일기에서 보여진 주요 내용입니다.
+                <br>{{ user.nickname }}님의 일기에서 보여진 주요 내용입니다.
                 <br>
                 <br>일기를 다시 읽어보며 마음을 되돌아 보는 것은 어떨까요?</p>
         </div>
 
         <!-- 소제목4 -->
         <div class="content-section">
-            <h2 class="diary_title">김마음님의 마음 워드클라우드</h2>
+            <h2 class="diary_title">{{ user.nickname }}님의 마음 워드클라우드</h2>
             <a href="#"><img src="{% static 'image/wordcloud.png' %}" width="435px" height="336.38px"></a>
         </div>
 
         <!-- 소제목5 -->
         <div class="content-section">
-            <h2 class="diary_title">김마음님을 위한 솔루션 제안</h2>
+            <h2 class="diary_title">{{ user.nickname }}님을 위한 솔루션 제안</h2>
             <p class="diary_content">우울할 때 하기 좋은 것을 추천해 드릴게요.
                 <br>
                 <br>

@@ -108,7 +108,9 @@ class Write(APIView):
 
 class Emotions(APIView):
     def get(self, request):
-        return render(request, "content/emotions.html")
+        diaries = Diary.objects.filter(user=request.user)
+        context = {'diaries': diaries}
+        return render(request, "content/emotions.html", context)
 
 
 # Create your views here.
