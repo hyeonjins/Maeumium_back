@@ -9,6 +9,7 @@ urlpatterns = [
     path('main3/', Main3.as_view(), name='main3'),
     path('write/', Write.as_view(), name='write'),
     path('emotions/', Emotions.as_view(), name='emotions'),
+    #path('generate_wordcloud/', GenerateWordcloud.as_view(), name='generate_wordcloud'),
     path('mydiary', MyDiary.as_view(), name='mydiary'),
     path('couplediary', CoupleDiary.as_view(), name='couplediary'),
 ]

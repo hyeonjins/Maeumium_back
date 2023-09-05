@@ -22,7 +22,9 @@ class Diary(models.Model):
     emotion = models.CharField(max_length=20)
     privacy = models.CharField(max_length=10)
     thumbnail = models.ImageField(upload_to='thumbnails/', blank=True, null=True)
+    #wordcloud = models.FileField(upload_to='wordclouds/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
+
 
     def __str__(self):
         return self.title
