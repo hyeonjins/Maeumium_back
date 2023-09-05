@@ -87,7 +87,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'maeumium',
-        'USER': 'admin',
+        'USER': 'admin2',
         'PASSWORD': 'Four1234!',
         'HOST': 'database-1.cvxgir4qm8xv.ap-northeast-2.rds.amazonaws.com',
         'PORT': '3306',
