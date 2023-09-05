@@ -10,8 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
-import json, os
+import json
+import os
 from pathlib import Path
+
+import pymysql
+
+pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,7 +45,6 @@ INSTALLED_APPS = [
     'user',
     'Diary',
 ]
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -83,10 +87,13 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'maeumium',
-        'USER': 'root',
-        'PASSWORD': 'Qksksk10!Qksksk10!',
-        'HOST': 'localhost',
+        'USER': 'admin',
+        'PASSWORD': 'Four1234!',
+        'HOST': 'database-1.cvxgir4qm8xv.ap-northeast-2.rds.amazonaws.com',
         'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        }
 
     }
 }
@@ -138,5 +145,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'user.User'
 CSRF_COOKIE_SECURE = False
 
-#LOGIN_REDIRECT_URL = 'main'  # 로그인 성공 후 리다이렉트될 URL 설정
-
+# LOGIN_REDIRECT_URL = 'main'  # 로그인 성공 후 리다이렉트될 URL 설정

@@ -177,14 +177,6 @@ class CoupleEnd(LoginRequiredMixin, APIView):
         return redirect('main2')  # main3에 해당하는 URL 패턴 이름으로 변경
 
 
-class MyPage2(APIView):
-    def get(self, request):
-        return render(request, "user/mypage2.html")
-
-    def post(self, request):
-        return render(request, "user/mypage2.html")
-
-
 class MyPageMain(APIView):
 
     def get(self, request):
