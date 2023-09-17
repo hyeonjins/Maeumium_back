@@ -11,8 +11,8 @@ from django.core.files.storage import FileSystemStorage
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.utils.timezone import now
-from gensim.summarization import summarize
-from konlpy.tag import Okt
+#from gensim.summarization import summarize
+#from konlpy.tag import Okt
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from wordcloud import WordCloud
@@ -200,7 +200,7 @@ def generate_wordcloud(text_data, diary_id):
 
     return image_path
 
-
+"""
 def summary(text):
     # 다이어리 엔트리를 문서로 결합
 
@@ -210,7 +210,7 @@ def summary(text):
         summary_text = summarize(diary_text, ratio=0.2)
         print("summary", summary_text)
     return summary_text
-
+"""
 
 # APIView 클래스 정의
 class Emotions(APIView):
@@ -244,13 +244,13 @@ class Emotions(APIView):
             })
 
             # 요약 함수 호출
-            summary_text = summary(text_data)
-            summaries.append(summary_text)
+            #summary_text = summary(text_data)
+            #summaries.append(summary_text)
 
         context = {
             'diaries': diaries,
             'wordcloud_images': wordcloud_images,
-            'summaries': summaries
+            #'summaries': summaries
         }
 
         return render(request, "content/emotions.html", context)
