@@ -2,196 +2,238 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" href="{% static 'css/global.css' %}">
-    <link rel="stylesheet" href="{% static 'css/write.css' %}">
-    <title>일기쓰기</title>
+    <link rel="stylesheet" href="{% static 'css/global.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/write.css' %}" />
+    <style>
+      .write_diary {
+        top: 123px;
+      }
 
-</head>
-<body>
-<!-- nav바 -->
-<nav class="navbar">
-    <div class="navbar__logo">
-        <a href="{% url 'main' %}"><img src="{% static 'image/logo_white.png' %}" width="145px"
-                                        height="62px"></a>
-    </div>
-    <ul class="navbar__menu">
+      .write_date {
+        display: flex;
+        flex-direction: row;
+        font-weight: bold;
+        left: 172px;
+        top: 180px;
+        font-size: 20px;
+        position: absolute;
+      }
+
+      .write_date_title {
+        font-weight: bold;
+        margin-right: 10px;
+      }
+
+      .write_date_input {
+        padding: 5px;
+      }
+    </style>
+    <title>일기쓰기</title>
+  </head>
+  <body>
+    <!-- nav바 -->
+    <nav class="navbar">
+      <div class="navbar__logo">
+        <a href="{% url 'main' %}"
+          ><img
+            src="{% static 'image/logo_white.png' %}"
+            width="145px"
+            height="62px"
+        /></a>
+      </div>
+      <ul class="navbar__menu">
         <li class="writing"><a href="{% url 'write' %}">일기쓰기</a></li>
         <li class="analysis"><a href="{% url 'emotions' %}">감정분석</a></li>
         <li class="my_page"><a href="{% url 'mypageMain' %}">마이페이지</a></li>
-    </ul>
-
-</nav>
-<div class="root">
-    <div class="write">
+      </ul>
+    </nav>
+    <div class="root">
+      <div class="write">
         <div class="write_diary">일기쓰기</div>
         <div class="write_privacy">
-            <div class="write_privacy_title">공개/비밀 여부</div>
-            <div class="write_privacy_buttons">
-                <div class="privacy_button">공개</div> <!-- 공개 버튼 -->
-                <div class="privacy_button">비밀</div> <!-- 비밀 버튼 -->
-            </div>
+          <div class="write_date">
+            <div class="write_date_title">날짜 선택</div>
+            <input type="date" class="write_date_input" />
+          </div>
+          <div class="write_privacy_title">공개/비밀 여부</div>
+          <div class="write_privacy_buttons">
+            <div class="privacy_button">공개</div>
+            <!-- 공개 버튼 -->
+            <div class="privacy_button">비밀</div>
+            <!-- 비밀 버튼 -->
+          </div>
         </div>
-
 
         <div class="write_emotion">
-            <div class="write_emotion_title">오늘의 감정</div>
+          <div class="write_emotion_title">오늘의 감정</div>
 
-            <div class="write_emotion_images">
-                <div class="emotion_image">
-                    <img src="{% static 'image/기쁨.png' %}" alt="Emotion Image">
-                    <div class="emotion_text">기쁨</div>
-                </div>
-                <div class="emotion_image">
-                    <img src="{% static 'image/설렘.png' %}" alt="Emotion Image">
-                    <div class="emotion_text">설렘</div>
-                </div>
-                <div class="emotion_image">
-                    <img src="{% static 'image/슬픔.png' %}" alt="Emotion Image">
-                    <div class="emotion_text">슬픔</div>
-                </div>
-                <div class="emotion_image">
-                    <img src="{% static 'image/분노.png' %}" alt="Emotion Image">
-                    <div class="emotion_text">분노</div>
-                </div>
-                <div class="emotion_image">
-                    <img src="{% static 'image/외로움.png' %}" alt="Emotion Image">
-                    <div class="emotion_text">외로움</div>
-                </div>
+          <div class="write_emotion_images">
+            <div class="emotion_image">
+              <img src="{% static 'image/기쁨.png' %}" alt="Emotion Image" />
+              <div class="emotion_text">기쁨</div>
             </div>
+            <div class="emotion_image">
+              <img src="{% static 'image/설렘.png' %}" alt="Emotion Image" />
+              <div class="emotion_text">설렘</div>
+            </div>
+            <div class="emotion_image">
+              <img src="{% static 'image/슬픔.png' %}" alt="Emotion Image" />
+              <div class="emotion_text">슬픔</div>
+            </div>
+            <div class="emotion_image">
+              <img src="{% static 'image/분노.png' %}" alt="Emotion Image" />
+              <div class="emotion_text">분노</div>
+            </div>
+            <div class="emotion_image">
+              <img src="{% static 'image/외로움.png' %}" alt="Emotion Image" />
+              <div class="emotion_text">외로움</div>
+            </div>
+          </div>
         </div>
 
-
-        <input type="text" class="write_title" placeholder="제목을 입력해주세요.">
-        <input type="text" class="write_content" placeholder="일기 내용을 입력해주세요.">
+        <input
+          type="text"
+          class="write_title"
+          placeholder="제목을 입력해주세요."
+        />
+        <input
+          type="text"
+          class="write_content"
+          placeholder="일기 내용을 입력해주세요."
+        />
 
         <div class="thumbnail_upload_button">
-            <label for="thumbnail_upload" class="thumbnail_upload_text">썸네일 이미지 업로드</label>
-            <input type="file" id="thumbnail_upload" style="display: none;">
+          <label for="thumbnail_upload" class="thumbnail_upload_text"
+            >썸네일 이미지 업로드</label
+          >
+          <input type="file" id="thumbnail_upload" style="display: none" />
         </div>
-
 
         <!-- 작성 완료 버튼 -->
         <div class="submit_button">
-            <span class="submit_button_text">작성완료</span>
+          <span class="submit_button_text">작성완료</span>
         </div>
+      </div>
+
+      <!-- footer -->
+      <div class="wrapper"></div>
+      <footer>ⓒ 마음이음. 2023 All rights reserved.</footer>
     </div>
+  </body>
 
-
-    <!-- footer -->
-    <div class="wrapper"></div>
-    <footer>
-        ⓒ 마음이음. 2023 All rights reserved.
-    </footer>
-</div>
-</body>
-
-
-<script>
+  <script>
     function getCookie(name) {
-        let cookieValue = null;
-        if (document.cookie && document.cookie !== "") {
-            const cookies = document.cookie.split(";");
-            for (let i = 0; i < cookies.length; i++) {
-                const cookie = cookies[i].trim();
-                if (cookie.substring(0, name.length + 1) === name + "=") {
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break;
-                }
-            }
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== "") {
+        const cookies = document.cookie.split(";");
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          if (cookie.substring(0, name.length + 1) === name + "=") {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
         }
-        return cookieValue;
+      }
+      return cookieValue;
     }
 
     $(document).ready(function () {
-        const submitButton = $(".submit_button");
-        const emotionImages = $(".emotion_image");
-        const privacyButtons = $(".privacy_button");
-        const thumbnailUploadButton = $(".thumbnail_upload_button");
-        const thumbnailUploadInput = $("#thumbnail_upload");
+      const submitButton = $(".submit_button");
+      const emotionImages = $(".emotion_image");
+      const privacyButtons = $(".privacy_button");
+      const thumbnailUploadButton = $(".thumbnail_upload_button");
+      const thumbnailUploadInput = $("#thumbnail_upload");
 
-        thumbnailUploadButton.on("click", function () {
-            thumbnailUploadInput.click();
+      thumbnailUploadButton.on("click", function () {
+        thumbnailUploadInput.click();
+      });
+
+      const dateInput = $(".write_date_input");
+
+      dateInput.on("change", function () {
+        const selectedDate = dateInput.val();
+      });
+
+      thumbnailUploadInput.on("change", function () {
+        const selectedFile = thumbnailUploadInput[0].files[0];
+        if (selectedFile) {
+          alert("파일 업로드 완료: " + selectedFile.name);
+        }
+      });
+
+      submitButton.on("click", function () {
+        const titleInput = $(".write_title");
+        const contentInput = $(".write_content");
+        const selectedEmotion = $(".emotion_image.selected")
+          .find(".emotion_text")
+          .text();
+        const selectedPrivacy = $(".privacy_button.selected").text();
+
+        if (titleInput.val().trim() === "") {
+          alert("제목은 필수로 입력해야 합니다!");
+          return;
+        }
+
+        if (!selectedEmotion) {
+          alert("오늘의 감정 선택은 필수입니다!");
+          return;
+        }
+
+        if (!selectedPrivacy) {
+          alert("공개/비밀 여부 선택은 필수입니다!");
+          return;
+        }
+
+        if (contentInput.val().trim() === "") {
+          alert("내용 입력은 필수입니다!");
+          return;
+        }
+
+        const formData = new FormData();
+        formData.append("title", titleInput.val().trim());
+        formData.append("content", contentInput.val().trim());
+        formData.append("emotion", selectedEmotion);
+        formData.append("privacy", selectedPrivacy);
+
+        const selectedFile = thumbnailUploadInput[0].files[0];
+        if (selectedFile) {
+          formData.append("thumbnail", selectedFile);
+        }
+
+        // 추가로 필요한 데이터가 있다면 formData에 추가하여 전송
+
+        $.ajax({
+          url: "{% url 'write' %}",
+          type: "POST",
+          data: formData,
+          processData: false,
+          contentType: false,
+          headers: { "X-CSRFToken": getCookie("csrftoken") },
+          success: function (response) {
+            alert("작성 완료되었습니다!");
+            window.location.href = "{% url 'mydiary' %}"; // 메인 페이지로 이동
+          },
+          error: function (error) {
+            alert("작성 실패했습니다. 다시 시도해주세요.");
+          },
         });
+      });
 
-        thumbnailUploadInput.on("change", function () {
-            const selectedFile = thumbnailUploadInput[0].files[0];
-            if (selectedFile) {
-                alert("파일 업로드 완료: " + selectedFile.name);
-            }
-        });
+      emotionImages.on("click", function () {
+        emotionImages.removeClass("selected");
+        $(this).addClass("selected");
+      });
 
-        submitButton.on("click", function () {
-            const titleInput = $(".write_title");
-            const contentInput = $(".write_content");
-            const selectedEmotion = $(".emotion_image.selected").find(".emotion_text").text();
-            const selectedPrivacy = $(".privacy_button.selected").text();
-
-            if (titleInput.val().trim() === "") {
-                alert("제목은 필수로 입력해야 합니다!");
-                return;
-            }
-
-            if (!selectedEmotion) {
-                alert("오늘의 감정 선택은 필수입니다!");
-                return;
-            }
-
-            if (!selectedPrivacy) {
-                alert("공개/비밀 여부 선택은 필수입니다!");
-                return;
-            }
-
-            if (contentInput.val().trim() === "") {
-                alert("내용 입력은 필수입니다!");
-                return;
-            }
-
-            const formData = new FormData();
-            formData.append("title", titleInput.val().trim());
-            formData.append("content", contentInput.val().trim());
-            formData.append("emotion", selectedEmotion);
-            formData.append("privacy", selectedPrivacy);
-
-            const selectedFile = thumbnailUploadInput[0].files[0];
-            if (selectedFile) {
-                formData.append("thumbnail", selectedFile);
-            }
-
-            // 추가로 필요한 데이터가 있다면 formData에 추가하여 전송
-
-            $.ajax({
-                url: "{% url 'write' %}",
-                type: "POST",
-                data: formData,
-                processData: false,
-                contentType: false,
-                headers: {"X-CSRFToken": getCookie("csrftoken")},
-                success: function (response) {
-                    alert("작성 완료되었습니다!");
-                    window.location.href = "{% url 'mydiary' %}"; // 메인 페이지로 이동
-                },
-                error: function (error) {
-                    alert("작성 실패했습니다. 다시 시도해주세요.");
-                }
-            });
-        });
-
-        emotionImages.on("click", function () {
-            emotionImages.removeClass("selected");
-            $(this).addClass("selected");
-        });
-
-        privacyButtons.on("click", function () {
-            privacyButtons.removeClass("selected");
-            $(this).addClass("selected");
-        });
+      privacyButtons.on("click", function () {
+        privacyButtons.removeClass("selected");
+        $(this).addClass("selected");
+      });
     });
-</script>
-
+  </script>
 </html>
