@@ -2,171 +2,225 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>마음이음_메인</title>
-    <meta charset="utf-8"/>
-    <link rel="stylesheet" href="{% static 'css/global.css' %}" rel="stylesheet"/>
-    <link rel="stylesheet" href="{% static 'css/main.css' %}" rel="stylesheet"/>
+    <title>2023년 9월</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="{% static 'css/global.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <style>
+        /* 달력 상단 */
+        .calendar_top {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            padding: 20px 0px 20px 0px;
+        }
+
+        .nickname_title {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .heart {
+            font-family: "GangwonEduSaeeum";
+            color: #a6212a;
+        }
+
+        .month {
+            font-size: 50px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* 달력 구현 */
+        .calendar {
+            margin: 0 auto;
+            margin-top: 20px;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border-radius: 5px;
+            box-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+            height: 100px;
+            width: 200px;
+            padding: 15px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        td:hover {
+            background-color: lightblue;
+        }
+
+        th {
+            font-weight: bold;
+            height: 50px;
+            background-color: #f0e3f8;
+            height: 29px;
+        }
+
+        .backward {
+            padding-right: 30px;
+        }
+
+        .emotion {
+            padding-top: 20px;
+        }
+
+        .sunday {
+            color: red;
+        }
+
+        .saturday {
+            color: blue;
+        }
+
+        #today {
+            font-weight: bold;
+            background-color: bisque;
+        }
+
+        /* 달력 하단 */
+        .calendar_bottom {
+            font-weight: bold;
+            font-size: 20px;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding-bottom: 20px;
+        }
+
+    </style>
 </head>
 
 <body>
-<!-- nav바 -->
-<nav class="navbar">
-    <div class="navbar__logo">
-        <a href="{% url 'main' %}"><img src="{% static 'image/logo_white.png' %}" width="145px" height="62px"></a>
-    </div>
-    <ul class="navbar__menu">
-        <li class="writing"><a href="{% url 'write' %}">일기쓰기</a></li>
-        <li class="analysis"><a href="{% url 'emotions' %}">감정분석</a></li>
-        <li class="my_page"><a href="{% url 'mypageMain' %}">마이페이지</a></li>
-    </ul>
-</nav>
-
-<div class="calendar_top">
-    <div class="nickname_title">
-        <div class="nickname1">{{ user.nickname }}</div>
-        <div class="heart">♥</div>
-        <div class="nickname2">{{ content.partner_nickname }}</div>
-    </div>
-    <div class="ward">
-        <img class="backward" src="{% static 'image/backward.png' %}" width="18px" height="32px"/>
-        <img src="{% static 'image/forward.png' %}" width="18px" height="32px"/>
-    </div>
-</div>
-
-<div class="calendar">
-    <div class="calendar_header">
-        <div class="ym-wrapper">
-            <span class="year"></span>년 <span class="month"></span>월
+    <!-- nav바 -->
+    <nav class="navbar">
+        <div class="navbar__logo">
+            <a href="{% url 'main' %}">
+                <img src="{% static 'image/logo_white.png' %}" width="145px" height="62px" />
+            </a>
         </div>
-    </div>
-    <div class="calendar_main">
-        <div class="days">
-            <div class="day">일</div>
-            <div class="day">월</div>
-            <div class="day">화</div>
-            <div class="day">수</div>
-            <div class="day">목</div>
-            <div class="day">금</div>
-            <div class="day">토</div>
+        <ul class="navbar__menu">
+            <li class="writing"><a href="{% url 'write' %}">일기쓰기</a></li>
+            <li class="analysis"><a href="{% url 'emotions' %}">감정분석</a></li>
+            <li class="my_page"><a href="{% url 'mypageMain' %}">마이페이지</a></li>
+        </ul>
+    </nav>
+
+    <div class="calendar">
+        <div class="calendar_top">
+            <div class="nickname_title">
+                <div class="nickname1">{{ user.nickname }}</div>
+                <div class="heart">♥</div>
+                <div class="nickname2">{{ content.partner_nickname }}</div>
+            </div>
+            <span class="month">6월</span>
+            <div class="ward">
+                <img class="backward" src="{% static 'image/backward.png' %}" width="18px" height="32px" />
+                <img src="{% static 'image/forward.png' %}" width="18px" height="32px" />
+            </div>
         </div>
-        <div class="dates"></div>
+        <table>
+            <thead>
+                <tr>
+                    <th class="sunday">Sunday</th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                    <th class="saturday">Saturday</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="sunday">1</td>
+                    <td>
+                        2
+                        <div class="emotion">
+                            <img src="{% static 'image/기쁨.png' %}" width="40px" height="38px" />
+                            <img src="{% static 'image/기쁨.png' %}" width="40px" height="38px" />
+                        </div>
+                    </td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td class="saturday">7</td>
+                </tr>
+
+                <tr>
+                    <td class="sunday">8</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>
+                        11
+                        <div class="emotion">
+                            <img src="{% static 'image/분노.png' %}" width="40px" height="38px" />
+                        </div>
+                    </td>
+                    <td>12</td>
+                    <td>13</td>
+                    <td class="saturday">14</td>
+                </tr>
+
+                <tr>
+                    <td class="sunday">15</td>
+                    <td>16</td>
+                    <td>17</td>
+                    <td id="today">18 today</td>
+                    <td>19</td>
+                    <td>20</td>
+                    <td class="saturday">21</td>
+                </tr>
+
+                <tr>
+                    <td class="sunday">22</td>
+                    <td>23</td>
+                    <td>24</td>
+                    <td>25</td>
+                    <td>26</td>
+                    <td>27</td>
+                    <td class="saturday">28</td>
+                </tr>
+
+                <tr>
+                    <td class="sunday">29</td>
+                    <td>30</td>
+                    <td>31</td>
+                    <td colspan="4"></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-</div>
 
-<div class="calendar_bottom">
-    {% if content.start_date %}
-        {{ days_passed }}일 째, 사랑 중♡
-    {% endif %}
-</div>
-
-
-<!-- footer -->
-<div class="wrapper"></div>
-<footer>
-    ⓒ 마음이음. 2023 All rights reserved.
-</footer>
-
+    <div class="calendar_bottom">
+        {% if content.start_date %} {{ days_passed }}일 째, 사랑 중♡ {% endif %}
+      </div>
+      
+    <!-- footer -->
+    <div class="wrapper"></div>
+    <footer>ⓒ 마음이음. 2023 All rights reserved.</footer>
 </body>
-
 
 <script type="text/javascript">
     let date = new Date();
 
-    const renderCalender = () => {
+    const renderCalendar = () => {
         const viewYear = date.getFullYear();
-        const viewMonth = date.getMonth();
-
-        document.querySelector(".year").textContent = `${viewYear}`;
-        document.querySelector(".month").textContent = `${viewMonth + 1}`;
-
-        const prevLast = new Date(viewYear, viewMonth, 0);
-        const thisLast = new Date(viewYear, viewMonth + 1, 0);
-
-        const PLDate = prevLast.getDate();
-        const PLDay = prevLast.getDay();
-
-        const TLDate = thisLast.getDate();
-        const TLDay = thisLast.getDay();
-
-        const prevDates = [];
-        const thisDates = [...Array(TLDate + 1).keys()].slice(1);
-        const nextDates = [];
-
-        document.querySelector(".backward").addEventListener("click", () => {
-            date.setMonth(date.getMonth() - 1);
-            if (date.getMonth() === -1) {
-                date.setMonth(11);
-                date.setFullYear(date.getFullYear() - 1);
-            }
-            renderCalender();
-        });
-
-        document.querySelector(".forward").addEventListener("click", () => {
-            date.setMonth(date.getMonth() + 1);
-            if (date.getMonth() === 12) {
-                date.setMonth(0);
-                date.setFullYear(date.getFullYear() + 1);
-            }
-            renderCalender();
-        });
-
-        if (PLDay !== 6) {
-            for (let i = 0; i < PLDay + 1; i++) {
-                prevDates.unshift(PLDate - i);
-            }
-        }
-
-        for (let i = 1; i < 7 - TLDay; i++) {
-            nextDates.push(i);
-        }
-
-        const dates = prevDates.concat(thisDates, nextDates);
-        const firstDateIndex = dates.indexOf(1);
-        const lastDateIndex = dates.lastIndexOf(TLDate);
-        thisDates.forEach((date, i) => {
-            const condition =
-                i >= firstDateIndex && i < lastDateIndex + 1 ? "this" : "other";
-            thisDates[
-                i
-                ] = `<div class="date ${condition}" style="width: calc(100% / 7); display: inline-block; padding: 70px;">${date}</div>`;
-        });
-
-
-        document.querySelector(".dates").innerHTML = dates.join("");
-
-        document.querySelector(".dates").style.display = "grid";
-        document.querySelector(".dates").style.gridTemplateColumns = "repeat(7, 1fr)";
-
-        document.querySelector(".dates").innerHTML = dates.join("");
-
-        const today = new Date();
-        if (viewMonth === today.getMonth() && viewYear === today.getFullYear()) {
-            for (let date of document.querySelectorAll(".this")) {
-                if (+date.innerText === today.getDate()) {
-                    date.classList.add("today");
-                    break;
-                }
-            }
-        }
-    };
-
-    renderCalender();
-
-    const prevMonth = () => {
-        date.setMonth(date.getMonth() - 1);
-        renderCalender();
-    };
-
-    const nextMonth = () => {
-        date.setMonth(date.getMonth() + 1);
-        renderCalender();
-    };
-
-    const goToday = () => {
-        date = new Date();
-        renderCalender();
-    };
-
-</script>
-</html>
