@@ -1,7 +1,8 @@
 ## 머신러닝을 활용한 감정 솔루션, 커플 다이어리 ‘마음이음’
 2023년 한이음 ICT멘토링 프로젝트 입선작
+![메인페이지 (로그인 이전)](https://github.com/Maeumium/Maeumium_back/assets/114787723/2571c5ec-c9e3-4ecf-ad51-afb382073f40)
 
-![메인페이지 (로그인 이전)](https://github.com/Maeumium/Maeumium/assets/114787723/83a56f40-752e-433d-b345-c6d746c2dc2c)
+
 
 
 ### 프로젝트 소개
