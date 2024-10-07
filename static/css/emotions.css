@@ -1,189 +1,183 @@
-body {
-    background: #FCFCFC;
-    margin: 0 auto;
+* {
+  font-family: "GangwonEduAll";
+}
 
+body {
+  background: #fcfcfc;
+  margin: 0 auto;
 }
 
 .root {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    font-family: 'GangwonEduAll';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "GangwonEduAll";
 }
 
 li {
-    list-style-type: none;
-    list-style: none;
-    padding-right: 40px;
+  list-style-type: none;
+  list-style: none;
+  padding-right: 40px;
 }
 
 a {
-    text-decoration: none;
-    color: #000000;
+  text-decoration: none;
+  color: #000000;
 }
-
 
 /* nav바 */
 .navbar {
-    display: flex;
-    flex-direction: row;
-    width: 100vw;
-    height: 67px;
-    background-color: #F0E3F8;
-    align-items: center;
-    justify-content: space-around;
-    font-family: 'GangwonEduAll';
-    font-size: 20px;
-    color: #000000;
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 67px;
+  background-color: #f0e3f8;
+  align-items: center;
+  justify-content: space-around;
+  font-family: "GangwonEduAll";
+  font-size: 20px;
+  color: #000000;
 }
 
 .navbar__menu {
-    display: flex;
-    flex-direction: row;
-    color: #000000;
+  display: flex;
+  flex-direction: row;
+  color: #000000;
 }
 
 /* footer */
 footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 100px;
-    left: 0px;
-    bottom: 0px;
-    width: 100%;
-    font-size: 10px;
-    font-family: 'Inter';
-    background-color: #F0E3F8;
-    margin-top: 30px;
-    color: #404040;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100px;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  font-size: 10px;
+  font-family: "Inter";
+  background-color: #f0e3f8;
+  margin-top: 30px;
+  color: #404040;
 }
 
-
 .root {
-    font-family: 'GangwonEduAll';
+  font-family: "GangwonEduAll";
 }
 
 .back {
-    padding: 20px 1200px 50px 0px;
+  padding: 20px 1200px 50px 0px;
 }
 
 .diary {
-    width: 1089px;
-    height: 2023px;
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    padding: 0px 20px 0px 20px;
-    font-family: 'GangwonEduAll';
+  width: 1089px;
+  height: 2023px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 0px 20px 0px 20px;
+  font-family: "GangwonEduAll";
 }
 
 .diary_top {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 50px;
 }
-
 
 .content-section {
-    margin-bottom: 80px;
-    padding: 5px 20px 0px 20px;
+  margin-bottom: 80px;
+  padding: 5px 20px 0px 20px;
 }
 
-.main-title {
-    font-size: 20px;
-    padding: 5px 200px 0px 200px; /* 감정분석 글씨 조정 필요 */
-}
-
+/* .main-title {
+  font-size: 60px;
+  font-weight: bold;
+  font-family: "GangwonEduAll";
+} */
 
 .diary_content {
-    padding-top: 20px;
-    font-size: 15px;
-    color: #000000
+  padding-top: 20px;
+  font-size: 15px;
+  color: #000000;
 }
 
-
 .content-section h2 {
-    border-top: 1px solid #ddd; /* 상단 테두리 추가 */
-    padding-top: 20px; /* 선과 제목 사이의 간격 조정 */
-    font-family: 'GangwonEduAll';
-    color: #89029C;
-    font-size: 25px;
-
+  border-top: 1px solid #ddd; /* 상단 테두리 추가 */
+  padding-top: 20px; /* 선과 제목 사이의 간격 조정 */
+  font-family: "GangwonEduAll";
+  color: #89029c;
+  font-size: 25px;
 }
 
 .content-section h3 {
-    padding-top: 20px;
-    font-size: 20px;
-
+  padding-top: 20px;
+  font-size: 20px;
 }
 
-
 .bar-chart {
-    width: 100%;
+  width: 100%;
 }
 
 .bar {
-    position: relative; /* label의 절대 위치를 위해 필요함 */
-    height: 30px; /* 막대의 높이 */
-    margin-bottom: 10px; /* 막대 사이의 간격 */
+  position: relative; /* label의 절대 위치를 위해 필요함 */
+  height: 30px; /* 막대의 높이 */
+  margin-bottom: 10px; /* 막대 사이의 간격 */
 }
 
 .bar-fill {
-    height: 100%; /* 막대 전체 높이 */
-    background-color: #000000; /* 막대의 색상 */
+  height: 100%; /* 막대 전체 높이 */
+  background-color: #000000; /* 막대의 색상 */
 }
-
 
 /* data-value 속성에 따라 너비 설정 */
 .bar-fill[data-value="23"] {
-    width: 23%;
+  width: 23%;
 }
 
 .bar-fill[data-value="27"] {
-    width: 27%;
+  width: 27%;
 }
 
 .bar-fill[data-value="50"] {
-    width: 50%;
+  width: 50%;
 }
 
 .bar-fill {
-    margin-left: 30px;
+  margin-left: 30px;
 }
 
 .bar-positive {
-    background-color: #ffb02e;
+  background-color: #ffb02e;
 }
 
 .bar-neutral {
-    background-color: #503A4A;
+  background-color: #503a4a;
 }
 
 .bar-negative {
-    background-color: #F70A8D;
+  background-color: #f70a8d;
 }
 
-
 .bar-label {
-    position: absolute;
-    right: 10px; /* 오른쪽 끝에서 약간 떨어져서 */
-    top: 50%;
-    transform: translateY(-50%); /* 수직 중앙 정렬 */
-    font-size: 15px;
-    font-weight: bold;
-    margin-right: 30px;
+  position: absolute;
+  right: 10px; /* 오른쪽 끝에서 약간 떨어져서 */
+  top: 50%;
+  transform: translateY(-50%); /* 수직 중앙 정렬 */
+  font-size: 15px;
+  font-weight: bold;
+  margin-right: 30px;
 }
 
 /* 기존 CSS는 그대로 유지되며 아래 CSS를 추가/변경합니다. */
 
 .bar {
-    display: flex; /* 항목들을 가로로 나열 */
-    align-items: center; /* 항목들을 수직 중앙에 정렬 */
+  display: flex; /* 항목들을 가로로 나열 */
+  align-items: center; /* 항목들을 수직 중앙에 정렬 */
 }
 
 .bar-name {
-    font-size: 15px;
+  font-size: 15px;
 }
